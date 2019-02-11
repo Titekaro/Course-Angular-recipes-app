@@ -1,0 +1,19 @@
+.meal {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 30px rgba(0,0,0,.1);
+}
+
+.meal__overview__image {
+  width: 100%;
+}
+
+.meal__info__title {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.meal__info__cooking {
+  font-size: 14px;
+}
