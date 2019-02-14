@@ -7,10 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   username: string = 'you';
+  clicks = [];
+  hasClick: boolean = false;
+  newClick: number = 0;
 
   ngOnInit () {}
 
   resetUsername() {
     this.username = '';
+  }
+
+  onClick() {
+    this.hasClick = true;
+    this.newClick = this.newClick + 1;
+    this.clicks.push(this.newClick);
   }
 }
