@@ -26,6 +26,13 @@
   <input type="text" [(ngModel)]="username">
   <p>{{ username }}</p>
   <button class="btn btn-primary" [disabled]="!username" (click)="resetUsername()">Reset username</button>
+
+  <hr>
+
+  <button class="btn btn-primary" (click)="onClick()">Display details</button>
+  <p *ngIf="hasClick">Time cooking: 30'</p>
+  <p *ngFor="let newClick of clicks" [ngClass]="{red: clicks.length >= 5}">Your {{ newClick }} click</p>
+
 </div>
 
 <router-outlet></router-outlet>
