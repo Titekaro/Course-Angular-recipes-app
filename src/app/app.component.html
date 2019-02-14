@@ -31,7 +31,7 @@
 
   <button class="btn btn-primary" (click)="onClick()">Display details</button>
   <p *ngIf="hasClick">Time cooking: 30'</p>
-  <p *ngFor="let newClick of clicks" [ngClass]="{red: clicks.length >= 5}">Your {{ newClick }} click</p>
+  <p *ngFor="let click of clicks" [ngClass]="{'red': click >= 5}">Your {{ click }} click</p>
 
 </div>
 

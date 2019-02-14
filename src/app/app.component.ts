@@ -9,7 +9,6 @@ export class AppComponent {
   username: string = 'you';
   clicks = [];
   hasClick: boolean = false;
-  newClick: number = 0;
 
   ngOnInit () {}
 
@@ -19,7 +18,6 @@ export class AppComponent {
 
   onClick() {
     this.hasClick = true;
-    this.newClick = this.newClick + 1;
-    this.clicks.push(this.newClick);
+    this.clicks.push(this.clicks.length + 1);
   }
 }
