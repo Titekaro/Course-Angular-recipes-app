@@ -4,12 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { mealcardComponent } from "./mealCardComponent/mealCardComponent";
+import { headerComponent } from "./header/header.component";
+import { MealsComponent } from './meals/meals.component';
+import { MealItemComponent } from './meals/meal-list/meal-item/meal-item.component';
+import { MealListComponent } from './meals/meal-list/meal-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    mealcardComponent
+    headerComponent,
+    MealsComponent,
+    MealItemComponent,
+    MealListComponent
   ],
   imports: [
     BrowserModule,
