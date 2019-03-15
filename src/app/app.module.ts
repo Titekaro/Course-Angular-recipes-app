@@ -6,16 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { headerComponent } from "./header/header.component";
 import { MealsComponent } from './meals/meals.component';
-import { MealItemComponent } from './meals/meal-list/meal-item/meal-item.component';
 import { MealListComponent } from './meals/meal-list/meal-list.component';
+import { MealItemComponent } from './meals/meal-list/meal-item/meal-item.component';
+import { MealAllergeneComponent } from './meals/meal-list/meal-item/meal-allergene/meal-allergene.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     headerComponent,
     MealsComponent,
+    MealListComponent,
     MealItemComponent,
-    MealListComponent
+    MealAllergeneComponent
   ],
   imports: [
     BrowserModule,
