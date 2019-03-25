@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import {MealItem} from "../../meal.model";
 
 @Component({
   selector: 'app-meal-item',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./meal-item.component.scss'],
 })
 export class MealItemComponent {
+  @Input() mealItem: MealItem;
 
 }
