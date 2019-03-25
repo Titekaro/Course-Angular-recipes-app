@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,10 @@ export class AppComponent {
   clicks = [];
   hasClick: boolean = false;
 
-  ngOnInit () {}
+  numbers: number[] = [];
+
+  ngOnInit() {
+  }
 
   resetUsername() {
     this.username = '';
@@ -19,5 +22,10 @@ export class AppComponent {
   onClick() {
     this.hasClick = true;
     this.clicks.push(this.clicks.length + 1);
+  }
+
+  onStartInterval(myIntervalNumber: number) {
+    console.log(myIntervalNumber);
+    this.numbers.push(myIntervalNumber);
   }
 }
