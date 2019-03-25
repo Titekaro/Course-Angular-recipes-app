@@ -9,6 +9,9 @@ import { MealsComponent } from './meals/meals.component';
 import { MealListComponent } from './meals/meal-list/meal-list.component';
 import { MealItemComponent } from './meals/meal-list/meal-item/meal-item.component';
 import { MealAllergeneComponent } from './meals/meal-list/meal-item/meal-allergene/meal-allergene.component';
+import { GameControlComponent } from './game-control/game-control.component';
+import { OddComponent } from './odd/odd.component';
+import { EvenComponent } from './even/even.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { MealAllergeneComponent } from './meals/meal-list/meal-item/meal-allerge
     MealsComponent,
     MealListComponent,
     MealItemComponent,
-    MealAllergeneComponent
+    MealAllergeneComponent,
+    GameControlComponent,
+    OddComponent,
+    EvenComponent
   ],
   imports: [
     BrowserModule,
