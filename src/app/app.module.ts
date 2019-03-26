@@ -12,6 +12,7 @@ import { MealAllergeneComponent } from './meals/meal-list/meal-item/meal-allerge
 import { GameControlComponent } from './game-control/game-control.component';
 import { OddComponent } from './odd/odd.component';
 import { EvenComponent } from './even/even.component';
+import { HighlightMealDirective } from './directives/highlight-meal.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EvenComponent } from './even/even.component';
     MealAllergeneComponent,
     GameControlComponent,
     OddComponent,
-    EvenComponent
+    EvenComponent,
+    HighlightMealDirective
   ],
   imports: [
     BrowserModule,
