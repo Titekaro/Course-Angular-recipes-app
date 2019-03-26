@@ -1,7 +1,6 @@
 <div class="meal" appHighlightMeal>
 
-  <div class="meal__overview">
-    <img class="meal__overview__image" src="{{ mealItem.imagePath }}" alt="">
+  <div class="meal__overview" [ngStyle]="{'background-image': 'url('+ mealItem.imagePath +')'}">
   </div>
 
   <div class="meal__infos">
@@ -17,4 +16,3 @@
   </div>
 
 </div>
-
