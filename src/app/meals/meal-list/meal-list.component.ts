@@ -11,9 +11,9 @@ import {MealItem} from '../meal.model';
 export class MealListComponent implements OnInit {
   //Tell that meals array should only contain some meal model you created and imported
   meals: MealItem[] = [
-    new MealItem('Chili Con Carne', 'https://placehold.it/345x300', 45),
-    new MealItem('Tuna Poke Tacos', 'https://placehold.it/345x300', 40),
-    new MealItem('Kimchi & Bulgogi nachos', 'https://placehold.it/345x300', 25)
+    new MealItem('Chili Con Carne', './assets/images/mexican/chili-con-carne.jpg', 45),
+    new MealItem('Tuna Poke Tacos', './assets/images/mexican/tuna-tacos.jpg', 40),
+    new MealItem('Kimchi & Bulgogi nachos', './assets/images/mexican/kimchi-nachos.jpg', 25)
   ];
 
 
