@@ -1,5 +1,10 @@
 <p>
-  meal-recipe works<br>
   {{mealItem.name}}<br>
-  {{mealItem.timeCooking}}
+  {{mealItem.timeCooking}}'
 </p>
+<br>
+<ul class="ingredient-list">
+  <li class="ingredient-list__item" *ngFor="let ingredient of mealItem.ingredients">
+    {{ingredient}}
+  </li>
+</ul>
