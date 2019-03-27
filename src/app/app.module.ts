@@ -8,6 +8,7 @@ import { headerComponent } from "./header/header.component";
 import { MealsComponent } from './meals/meals.component';
 import { MealListComponent } from './meals/meal-list/meal-list.component';
 import { MealItemComponent } from './meals/meal-list/meal-item/meal-item.component';
+import { MealRecipeComponent } from "./meals/meal-recipe/meal-recipe.component";
 import { MealAllergeneComponent } from './meals/meal-list/meal-item/meal-allergene/meal-allergene.component';
 import { GameControlComponent } from './game-control/game-control.component';
 import { OddComponent } from './odd/odd.component';
@@ -22,6 +23,7 @@ import { DropdownDirective } from './directives/dropdown.directive';
     MealsComponent,
     MealListComponent,
     MealItemComponent,
+    MealRecipeComponent,
     MealAllergeneComponent,
     GameControlComponent,
     OddComponent,
