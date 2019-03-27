@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-// Import your meal model
-import {MealItem} from '../meal.model';
+import {MealService} from "../meal.service";
+import {MealItem} from "../meal.model";
 
 @Component({
   selector: 'app-meal-list',
@@ -9,18 +8,15 @@ import {MealItem} from '../meal.model';
   styleUrls: ['./meal-list.component.scss']
 })
 export class MealListComponent implements OnInit {
-  //Tell that meals array should only contain some meal model you created and imported
-  meals: MealItem[] = [
-    new MealItem('Chili Con Carne', './assets/images/mexican/chili-con-carne.jpg', 45),
-    new MealItem('Tuna Poke Tacos', './assets/images/mexican/tuna-tacos.jpg', 40),
-    new MealItem('Kimchi & Bulgogi nachos', './assets/images/mexican/kimchi-nachos.jpg', 25)
-  ];
+  // The list needs our meals
+  meals: MealItem[];
 
-
-
-  constructor() { }
+  // We call our service that contains the meals datas
+  constructor(private mealService: MealService) { }
 
   ngOnInit() {
+    // We tell that our array of meals is equal to the initialised array of meals on our service.
+    this.meals = this.mealService.getMeals();
   }
 
 }
