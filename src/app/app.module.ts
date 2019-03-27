@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import {RouterModule, Routes} from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { headerComponent } from "./header/header.component";
@@ -13,8 +14,15 @@ import { MealAllergeneComponent } from './meals/meal-list/meal-item/meal-allerge
 import { GameControlComponent } from './game-control/game-control.component';
 import { OddComponent } from './odd/odd.component';
 import { EvenComponent } from './even/even.component';
+import { GreekMealsComponent } from './greek-meals/greek-meals.component';
+
 import { HighlightMealDirective } from './directives/highlight-meal.directive';
 import { DropdownDirective } from './directives/dropdown.directive';
+
+const appRoutes: Routes = [
+  {path: 'meals', component: MealsComponent},
+  {path: 'greek-meals', component: GreekMealsComponent}
+];
 
 @NgModule({
   declarations: [
@@ -29,12 +37,14 @@ import { DropdownDirective } from './directives/dropdown.directive';
     OddComponent,
     EvenComponent,
     HighlightMealDirective,
-    DropdownDirective
+    DropdownDirective,
+    GreekMealsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

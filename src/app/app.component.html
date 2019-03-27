@@ -9,11 +9,7 @@
 
 <div class="container">
 
-  <h2>
-    Mexican
-  </h2>
-
-  <app-meals></app-meals>
+  <router-outlet></router-outlet>
 
   <hr>
 
@@ -34,5 +30,3 @@
   <app-odd *ngFor="let number of numbers" [number]="number"></app-odd>
 
 </div>
-
-<router-outlet></router-outlet>
