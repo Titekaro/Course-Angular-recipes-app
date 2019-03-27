@@ -1,3 +1,5 @@
+import {EventEmitter} from "@angular/core";
+
 import {MealItem} from "./meal.model";
 
 export class MealService {
@@ -7,6 +9,9 @@ export class MealService {
     new MealItem('Tuna Poke Tacos', './assets/images/mexican/tuna-tacos.jpg', 40),
     new MealItem('Kimchi & Bulgogi nachos', './assets/images/mexican/kimchi-nachos.jpg', 25)
   ];
+
+  // We define an eventEmitter for when we select a meal (MealItem).
+  selectedMeal = new EventEmitter<MealItem>();
 
   constructor() { }
 
