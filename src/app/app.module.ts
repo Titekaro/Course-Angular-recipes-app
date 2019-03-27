@@ -13,6 +13,7 @@ import { GameControlComponent } from './game-control/game-control.component';
 import { OddComponent } from './odd/odd.component';
 import { EvenComponent } from './even/even.component';
 import { HighlightMealDirective } from './directives/highlight-meal.directive';
+import { DropdownDirective } from './directives/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HighlightMealDirective } from './directives/highlight-meal.directive';
     GameControlComponent,
     OddComponent,
     EvenComponent,
-    HighlightMealDirective
+    HighlightMealDirective,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
