@@ -21,7 +21,7 @@ import { DropdownDirective } from './directives/dropdown.directive';
 
 const appRoutes: Routes = [
   {path: 'meals', component: MealsComponent},
-  {path: 'greek-meals', component: GreekMealsComponent}
+  {path: 'meals/:type', component: MealsComponent}
 ];
 
 @NgModule({
