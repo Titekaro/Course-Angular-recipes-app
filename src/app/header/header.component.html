@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a href="#" class="navbar-brand">
+  <a routerLink="/" class="navbar-brand">
     <img src="./assets/images/logo-worldwide-cooking.png" width="30" height="30" alt="">
     Worldwide Cooking
   </a>
@@ -10,17 +10,17 @@
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown" appDropdown>
         <a class="nav-link dropdown-toggle" role="button">
           Meals
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/meals">Mexican</a></li>
-          <li><a class="dropdown-item" href="#">Italian</a></li>
-          <li><a class="dropdown-item" href="/greek-meals">Greek</a></li>
+          <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/meals', 'mexican']">Mexican</a></li>
+          <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/meals', 'italian']">Italian</a></li>
+          <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/meals', 'greek']">Greek</a></li>
         </ul>
       </li>
     </ul>
