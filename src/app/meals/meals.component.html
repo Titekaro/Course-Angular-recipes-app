@@ -1,6 +1,3 @@
-<h2>
-  {{meals.type}}
-</h2>
+<router-outlet></router-outlet>
 
-<app-meal-list class="meal-list row"></app-meal-list>
 <app-meal-recipe class="recipe-container row" *ngIf="mySelectedMeal" [mealItem]="mySelectedMeal"></app-meal-recipe>

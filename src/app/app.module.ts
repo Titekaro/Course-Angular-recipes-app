@@ -20,8 +20,9 @@ import { HighlightMealDirective } from './directives/highlight-meal.directive';
 import { DropdownDirective } from './directives/dropdown.directive';
 
 const appRoutes: Routes = [
-  {path: 'meals', component: MealsComponent},
-  {path: 'meals/:type', component: MealsComponent}
+  {path: 'meals', component: MealsComponent, children: [
+    {path: ':type', component: MealListComponent}
+  ]},
 ];
 
 @NgModule({
