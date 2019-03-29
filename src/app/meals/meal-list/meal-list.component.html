@@ -1,6 +1,7 @@
-<h2>
-  {{mealsType.type}}
+<h2 class="meal-list-title">
+  {{mealType}}
 </h2>
+
 <div class="meal-list row">
-  <app-meal-item class="meal-list__item col-sm" *ngFor="let meal of meals" [mealItem]="meal"></app-meal-item>
+  <app-meal-item class="meal-list__item col-xs-12 col-sm-4" *ngFor="let meal of meals" [mealItem]="meal"></app-meal-item>
 </div>

@@ -1,4 +1,12 @@
 .meal-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+
+.meal-list-title {
+  margin: 25px 0;
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
 }

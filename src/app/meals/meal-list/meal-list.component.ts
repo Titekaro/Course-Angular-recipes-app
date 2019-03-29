@@ -10,22 +10,21 @@ import {ActivatedRoute, Params} from "@angular/router";
 })
 export class MealListComponent implements OnInit {
   // The list needs our meals
-  meals: MealItem[];
-  mealsType: {type: string};
+  meals: {type: string}[MealItem];
+  mealType: string;
 
   // We call our service that contains the meals datas
   constructor(private mealService: MealService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // We tell that our array of meals is equal to the initialised array of meals on our service.
-    this.meals = this.mealService.getMeals();
+    this.mealType = this.route.snapshot.params['type'];
 
-    this.mealsType = {
-      type: this.route.snapshot.params['type']
-    };
     this.route.params.subscribe((params: Params) => {
-      this.mealsType.type = params['type'];
+      this.mealType = params['type'];
     });
+
+    // We tell that our array of meals is equal to the initialised array of meals on our service, selected by the meal type.
+    this.meals = this.mealService.getMeals(this.mealType);
   }
 
 }
