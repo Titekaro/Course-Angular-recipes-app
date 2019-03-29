@@ -24,7 +24,7 @@ export class MealListComponent implements OnInit {
     });
 
     // We tell that our array of meals is equal to the initialised array of meals on our service, selected by the meal type.
-    this.meals = this.mealService.getMeals(this.mealType);
+    this.meals = this.mealService.getMeals();
   }
 
 }

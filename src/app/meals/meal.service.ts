@@ -43,7 +43,7 @@ export class MealService {
   constructor() { }
 
   // We return our array of meals
-  getMeals(type: string) {
-    return this.meals[type];
+  getMeals() {
+    return this.meals;
   }
 }
