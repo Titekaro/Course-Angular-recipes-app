@@ -1,5 +1,3 @@
-import {EventEmitter} from "@angular/core";
-
 import {MealItem} from "./meal.model";
 
 export class MealService {
@@ -37,13 +35,21 @@ export class MealService {
     ]
   };
 
-  // We define an eventEmitter for when we select a meal (MealItem).
-  selectedMeal = new EventEmitter<MealItem>();
+  mealItem: MealItem;
 
   constructor() { }
 
   // We return our array of meals
   getMeals() {
     return this.meals;
+  }
+
+  getRecipe(type: string, name: string) {
+    this.meals[type].forEach(element => {
+      if (element.name === name) {
+        this.mealItem = element;
+      }
+    });
+    return this.mealItem;
   }
 }
