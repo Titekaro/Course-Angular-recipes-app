@@ -10,7 +10,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 })
 export class MealListComponent implements OnInit {
   // The list needs our meals
-  meals: {type: string}[MealItem];
+  meals: { greek: MealItem[]; italian: MealItem[]; mexican: MealItem[] };
   mealType: string;
 
   // We call our service that contains the meals datas
