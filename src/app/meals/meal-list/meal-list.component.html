@@ -4,4 +4,5 @@
 
 <div class="meal-list row">
   <app-meal-item class="meal-list__item col-xs-12 col-sm-4" *ngFor="let meal of meals[mealType]" [mealItem]="meal"></app-meal-item>
+  <router-outlet></router-outlet>
 </div>

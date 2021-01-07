@@ -17,8 +17,6 @@ export class MealListComponent implements OnInit {
   constructor(private mealService: MealService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.mealType = this.route.snapshot.params['type'];
-
     this.route.params.subscribe((params: Params) => {
       this.mealType = params['type'];
     });
