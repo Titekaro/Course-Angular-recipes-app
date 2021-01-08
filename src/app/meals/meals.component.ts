@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MealService} from "./meal.service";
+import {MealService} from "../services/meal.service";
 
 @Component({
   selector: 'app-meals',

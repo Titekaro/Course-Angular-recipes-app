@@ -6,22 +6,4 @@
 
   <router-outlet></router-outlet>
 
-  <hr>
-
-  <input type="text" [(ngModel)]="username">
-  <p>{{ username }}</p>
-  <button class="btn btn-primary" [disabled]="!username" (click)="resetUsername()">Reset username</button>
-
-  <hr>
-
-  <button class="btn btn-primary" (click)="onClick()">Display details</button>
-  <p *ngIf="hasClick">Time cooking: 30'</p>
-  <p *ngFor="let click of clicks" [ngClass]="{'red': click >= 5}">Your {{ click }} click</p>
-  <br>
-  <br>
-  <app-game-control (startInterval)="onStartInterval($event)"></app-game-control>
-  <br>
-  <br>
-  <app-odd *ngFor="let number of numbers" [number]="number"></app-odd>
-
 </div>

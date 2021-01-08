@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 
-import {MealItem} from "../../meal.model";
+import {MealItem} from "../models/meal.model";
 
 @Component({
   selector: 'app-meal-item',
