@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MealService} from "../meal.service";
-import {MealItem} from "../meal.model";
+import {MealService} from "../services/meal.service";
+import {MealItem} from "../models/meal.model";
 import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
@@ -11,16 +11,14 @@ import {ActivatedRoute, Params} from "@angular/router";
 export class MealListComponent implements OnInit {
   // The list needs our meals
   meals: { greek: MealItem[]; italian: MealItem[]; mexican: MealItem[] };
-  mealType: string;
-
+  mealCategory: string;
   // We call our service that contains the meals datas
-  constructor(private mealService: MealService, private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private mealService: MealService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.mealType = params['type'];
+      this.mealCategory = params['category'];
     });
-
     // We tell that our array of meals is equal to the initialised array of meals on our service, selected by the meal type.
     this.meals = this.mealService.getMeals();
   }

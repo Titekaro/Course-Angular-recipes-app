@@ -6,13 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { headerComponent } from "./header/header.component";
 import { MealsComponent } from './meals/meals.component';
-import { MealListComponent } from './meals/meal-list/meal-list.component';
-import { MealItemComponent } from './meals/meal-list/meal-item/meal-item.component';
-import { MealRecipeComponent } from "./meals/meal-recipe/meal-recipe.component";
-import { MealAllergeneComponent } from './meals/meal-list/meal-item/meal-allergene/meal-allergene.component';
-import { GameControlComponent } from './game-control/game-control.component';
-import { OddComponent } from './odd/odd.component';
-import { EvenComponent } from './even/even.component';
+import { MealListComponent } from './meal-list/meal-list.component';
+import { MealItemComponent } from './meal-item/meal-item.component';
+import { MealRecipeComponent } from "./meal-recipe/meal-recipe.component";
 
 import { HighlightMealDirective } from './directives/highlight-meal.directive';
 import { DropdownDirective } from './directives/dropdown.directive';
@@ -25,10 +21,6 @@ import { DropdownDirective } from './directives/dropdown.directive';
     MealListComponent,
     MealItemComponent,
     MealRecipeComponent,
-    MealAllergeneComponent,
-    GameControlComponent,
-    OddComponent,
-    EvenComponent,
     HighlightMealDirective,
     DropdownDirective
   ],

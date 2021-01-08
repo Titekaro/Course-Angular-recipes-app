@@ -1,4 +1,4 @@
-import {MealItem} from "./meal.model";
+import {MealItem} from "../models/meal.model";
 
 export class MealService {
   // We define our array with our datas for meals, using the meal model.
@@ -44,8 +44,8 @@ export class MealService {
     return this.meals;
   }
 
-  getRecipe(type: string, name: string) {
-    this.meals[type].forEach(element => {
+  getRecipe(category: string, name: string) {
+    this.meals[category].forEach(element => {
       if (element.name === name) {
         this.mealItem = element;
       }

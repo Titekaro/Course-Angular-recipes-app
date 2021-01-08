@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
-import {MealItem} from "../meal.model";
+import {MealItem} from "../models/meal.model";
 import {ActivatedRoute, Params} from "@angular/router";
-import {MealService} from "../meal.service";
+import {MealService} from "../services/meal.service";
 
 @Component({
   selector: 'app-meal-recipe',
@@ -10,19 +10,19 @@ import {MealService} from "../meal.service";
 })
 export class MealRecipeComponent implements OnInit {
   mealItem: MealItem;
-  recipeName: string;
-  recipeType: string;
+  mealName: string;
+  mealCategory: string;
 
   constructor(private route: ActivatedRoute, private mealService: MealService) {
   }
 
   ngOnInit() {
     this.route.parent.params.subscribe((params: Params) => {
-      this.recipeType = params['type'];
+      this.mealCategory = params['category'];
     });
     this.route.params.subscribe((params: Params) => {
-      this.recipeName = params['name'];
-      this.mealItem = this.mealService.getRecipe(this.recipeType, this.recipeName);
+      this.mealName = params['name'];
+      this.mealItem = this.mealService.getRecipe(this.mealCategory, this.mealName);
     });
   }
 }
