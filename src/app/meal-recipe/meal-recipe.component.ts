@@ -17,10 +17,8 @@ export class MealRecipeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.parent.params.subscribe((params: Params) => {
-      this.mealCategory = params['category'];
-    });
     this.route.params.subscribe((params: Params) => {
+      this.mealCategory = params['category'];
       this.mealName = params['name'];
       this.mealItem = this.mealService.getRecipe(this.mealCategory, this.mealName);
     });

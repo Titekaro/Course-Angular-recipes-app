@@ -8,9 +8,8 @@ import {MealRecipeComponent} from "./meal-recipe/meal-recipe.component";
 const appRoutes: Routes = [
   {path: '', component: MealsComponent},
   {path: 'meals', component: MealsComponent, children: [
-    {path: ':category', component: MealListComponent, children: [
-        {path: ':name', component: MealRecipeComponent}
-      ]}
+    {path: ':category', component: MealListComponent},
+    {path: ':category/:name', component: MealRecipeComponent}
   ]},
   {path: '**', redirectTo: ''}
 ];
