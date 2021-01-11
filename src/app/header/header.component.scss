@@ -1,11 +1,61 @@
-.nav-link {
-  cursor: pointer;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito+Sans:wght@300;400&display=swap');
+
+.header {
+  position: relative;
+  height: 80vh;
+  background-image: url("../../assets/images/bg-cooking.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-color: #384454;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, #384454 65%);
+    opacity: .7;
+  }
 }
 
-.dropdown {
-  &.show {
-    >.dropdown-menu {
-      display: block;
-    }
+.header__content {
+  position: relative;
+  top: 50%;
+
+  font-family: 'Nunito Sans', sans-serif;
+  text-align: center;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.title {
+  font-size: 3em;
+  font-weight: 300;
+}
+
+.title-carousel {
+  position: relative;
+  z-index: 1;
+  padding: 0 8px;
+
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.25em;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    height: 19px;
+    background-color: #FF9D24;
   }
+}
+
+.subtitle {
+  font-size: 1.5em;
+  font-weight: 300;
 }

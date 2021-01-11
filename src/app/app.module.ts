@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { headerComponent } from "./header/header.component";
+import { NavbarComponent } from "./navbar/navbar.component";
 import { MealsComponent } from './meals/meals.component';
 import { MealListComponent } from './meal-list/meal-list.component';
 import { MealItemComponent } from './meal-item/meal-item.component';
@@ -12,17 +12,19 @@ import { MealRecipeComponent } from "./meal-recipe/meal-recipe.component";
 
 import { HighlightMealDirective } from './directives/highlight-meal.directive';
 import { DropdownDirective } from './directives/dropdown.directive';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    headerComponent,
+    NavbarComponent,
     MealsComponent,
     MealListComponent,
     MealItemComponent,
     MealRecipeComponent,
     HighlightMealDirective,
-    DropdownDirective
+    DropdownDirective,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
