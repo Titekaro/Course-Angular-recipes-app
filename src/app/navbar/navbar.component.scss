@@ -1,0 +1,24 @@
+.bg-primary {
+  background-color: #384454 !important;
+}
+
+.nav-link {
+  color: #fff;
+  cursor: pointer;
+}
+
+.dropdown {
+  &.show {
+    >.dropdown-menu {
+      display: block;
+    }
+  }
+}
+
+.navbar-brand {
+  padding: 0;
+}
+
+.brand {
+  width: 80px;
+}
