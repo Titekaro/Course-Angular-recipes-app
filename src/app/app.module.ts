@@ -13,6 +13,8 @@ import { MealRecipeComponent } from "./meal-recipe/meal-recipe.component";
 import { HighlightMealDirective } from './directives/highlight-meal.directive';
 import { DropdownDirective } from './directives/dropdown.directive';
 import { HeaderComponent } from './header/header.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HeaderComponent } from './header/header.component';
     MealRecipeComponent,
     HighlightMealDirective,
     DropdownDirective,
-    HeaderComponent
+    HeaderComponent,
+    AuthenticationComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
