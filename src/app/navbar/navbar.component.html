@@ -37,6 +37,15 @@
           </li>
         </ul>
       </li>
+      <li class="nav-item" *ngIf="!adminMode">
+        <a class="nav-link" [routerLink]="['/authentication']">Sign in (admin)</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="adminMode">
+        <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="adminMode">
+        <a class="nav-link" (click)="signOut()">Log out</a>
+      </li>
     </ul>
   </div>
 </nav>
