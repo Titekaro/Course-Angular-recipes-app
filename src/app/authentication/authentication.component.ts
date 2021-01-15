@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {AuthenticationService} from "../services/authentication.service";
+import {AuthenticationResponseData, AuthenticationService} from "../services/authentication.service";
 import {UserService} from "../services/user.service";
-import {error} from "util";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-authentication',
@@ -14,6 +14,7 @@ export class AuthenticationComponent implements OnInit {
   loginMode: boolean = true;
   isLoading: boolean = false;
   error: string = null;
+  authenticationObserver: Observable<AuthenticationResponseData>;
 
   constructor(
     private userService: UserService,
@@ -36,16 +37,12 @@ export class AuthenticationComponent implements OnInit {
     this.isLoading = true;
 
     if (this.loginMode) {
-      this.authenticationService.signIn(email, password).subscribe(
-        responseData => {
-          this.isLoading = false;
-          this.userService.onSignIn();
-        }, error => {
-          this.error = error;
-          this.isLoading = false;
-        });
+      this.authenticationObserver = this.authenticationService.signIn(email, password);
     } else {
-      this.authenticationService.signUp(email, password).subscribe(
+      this.authenticationObserver = this.authenticationService.signUp(email, password);
+    }
+
+    this.authenticationObserver.subscribe(
         responseData => {
           this.isLoading = false;
           this.userService.onSignIn();
@@ -53,6 +50,5 @@ export class AuthenticationComponent implements OnInit {
           this.error = error;
           this.isLoading = false;
         });
-    }
   }
 }
