@@ -4,7 +4,7 @@ import {catchError} from "rxjs/operators";
 import {throwError} from "rxjs";
 import * as config from '../../../config.json';
 
-interface AuthenticationResponseData {
+export interface AuthenticationResponseData {
   idToken: string,
   email: string,
   refreshToken: string,
