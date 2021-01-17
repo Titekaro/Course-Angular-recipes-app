@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {AuthenticationResponseData, AuthenticationService} from "../services/authentication.service";
+import {AuthenticationResponseData, AuthenticationService} from "../services/authentication/authentication.service";
 import {Observable} from "rxjs";
 
 @Component({

@@ -1,4 +1,4 @@
-import {MealItem} from "../models/meal.model";
+import {MealItem} from "../../models/meal.model";
 
 export class MealService {
   // We define our array with our datas for meals, using the meal model.

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MealService} from "../services/meal.service";
+import {MealService} from "../services/meal/meal.service";
 import {MealItem} from "../models/meal.model";
 import {ActivatedRoute, Params} from "@angular/router";
 
