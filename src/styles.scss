@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito+Sans:wght@300;400&display=swap');
+@import "assets/styles/variables";
+
+.bg-primary {
+  background-color: $color-primary !important;
+}
+
+.bg-primary-dark {
+  min-height: 100vh;
+  color: $text-color-invert;
+  -webkit-font-smoothing: antialiased;
+  background-color: #212a39;
+}
+
+.title {
+  font-family: $font-family-base;
+}
+
+.title-highlight {
+  font-family: $font-family-highlight;
+}
