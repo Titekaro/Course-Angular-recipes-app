@@ -1,8 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {catchError} from "rxjs/operators";
-import {throwError} from "rxjs";
-import * as config from '../../../config.json';
+import {catchError, tap} from "rxjs/operators";
+import {BehaviorSubject, throwError} from "rxjs";
+import * as config from '../../../../config.json';
+import {User} from "../../models/user.model";
+import {UserService} from "../user/user.service";
+import {Router} from "@angular/router";
 
 export interface AuthenticationResponseData {
   idToken: string,
@@ -19,8 +22,9 @@ export interface AuthenticationResponseData {
 export class AuthenticationService {
   signUpApiURL: string = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + config.firebaseApiKey;
   signInApiURL: string = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + config.firebaseApiKey;
+  user = new BehaviorSubject<User>(null);
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UserService, private router: Router) {
   }
 
   signIn(email: string, password: string) {
@@ -28,9 +32,15 @@ export class AuthenticationService {
       email: email,
       password: password,
       returnSecureToken: true
-    }).pipe(catchError(errorResponse => {
-      return AuthenticationService.handleError(errorResponse);
-    }));
+    }).pipe(
+      /*tap() allows to perform some actions without change the response. It runs some code with the datas you get back from the observable*/
+      tap(responseData => {
+        this.handleAuthentication(responseData.email, responseData.localId, responseData.idToken, responseData.expiresIn);
+      }),
+      catchError(errorResponse => {
+        return AuthenticationService.handleError(errorResponse);
+      })
+    );
   }
 
   signUp(email: string, password: string) {
@@ -38,9 +48,39 @@ export class AuthenticationService {
       email: email,
       password: password,
       returnSecureToken: true
-    }).pipe(catchError(errorResponse => {
-      return AuthenticationService.handleError(errorResponse);
-    }));
+    }).pipe(
+      tap(responseData => {
+        this.handleAuthentication(responseData.email, responseData.localId, responseData.idToken, responseData.expiresIn);
+      }),
+      catchError(errorResponse => {
+        return AuthenticationService.handleError(errorResponse);
+      })
+    );
+  }
+
+  autoSignIn() {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if (!userData) {
+      return;
+    }
+    const activeUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpiration));
+    if (activeUser.token) { /* Method get token() (from the user model), that checks if we have a valid token */
+      this.user.next(activeUser);
+    }
+  }
+
+  signOut() {
+    this.user.next(null);
+    localStorage.removeItem('userData');
+    this.router.navigate(['/']);
+  }
+
+  private handleAuthentication(email: string, id: string, idToken: string, expiresIn: string) {
+    const expirationDate = new Date(new Date().getTime() + +expiresIn * 1000);
+    const user = new User(email, id, idToken, expirationDate);
+    this.user.next(user);
+    localStorage.setItem('userData', JSON.stringify(user));
+    this.router.navigate(['/dashboard']);
   }
 
   private static handleError(errorResponse: HttpErrorResponse) {

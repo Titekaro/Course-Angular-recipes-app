@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
-import {UserService} from "../services/user.service";
 import {Subscription} from "rxjs";
+import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
   selector: 'app-navbar',
@@ -11,14 +11,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   adminMode: boolean = false;
   adminModeSubscription: Subscription;
 
-  constructor(private userService: UserService) {
+  constructor(private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
-    this.adminModeSubscription = this.userService.adminMode.subscribe((adminMode: boolean) => {
-      this.adminMode = adminMode;
+    this.adminModeSubscription = this.authenticationService.user.subscribe(user => {
+      this.adminMode = !!user;
     });
-    this.adminMode = !!localStorage.getItem('adminMode');
   }
 
   ngOnDestroy() {
@@ -26,7 +25,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   signOut() {
-    this.adminMode = false;
-    this.userService.onSignOut();
+    this.authenticationService.signOut();
   }
 }

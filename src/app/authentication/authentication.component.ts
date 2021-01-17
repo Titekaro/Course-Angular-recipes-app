@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {AuthenticationResponseData, AuthenticationService} from "../services/authentication.service";
-import {UserService} from "../services/user.service";
 import {Observable} from "rxjs";
 
 @Component({
@@ -16,9 +15,7 @@ export class AuthenticationComponent implements OnInit {
   error: string = null;
   authenticationObserver: Observable<AuthenticationResponseData>;
 
-  constructor(
-    private userService: UserService,
-    private authenticationService: AuthenticationService) {
+  constructor(private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
@@ -43,12 +40,11 @@ export class AuthenticationComponent implements OnInit {
     }
 
     this.authenticationObserver.subscribe(
-        responseData => {
-          this.isLoading = false;
-          this.userService.onSignIn();
-        }, error => {
-          this.error = error;
-          this.isLoading = false;
-        });
+      responseData => {
+        this.isLoading = false;
+      }, error => {
+        this.error = error;
+        this.isLoading = false;
+      });
   }
 }
