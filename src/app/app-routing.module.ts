@@ -14,7 +14,7 @@ const appRoutes: Routes = [
     {path: ':category/:name', component: MealRecipeComponent}
   ]},
   {path: 'authentication', component: AuthenticationComponent},
-  {path: 'dashboard', component: DashboardComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [DashboardGuard]},
   {path: '**', redirectTo: ''}
 ];
 
