@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito+Sans:wght@300;400&display=swap');
+@import "../../assets/styles/variables";
 
 .header {
   position: relative;
@@ -6,7 +6,7 @@
   background-image: url("../../assets/images/bg-cooking.jpg");
   background-size: cover;
   background-position: center top;
-  background-color: #384454;
+  background-color: $color-primary;
 
   &:before {
     content: '';
@@ -15,7 +15,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, transparent, #384454 65%);
+    background: linear-gradient(to bottom, transparent, $color-primary 65%);
     opacity: .7;
   }
 }
@@ -24,9 +24,9 @@
   position: relative;
   top: 50%;
 
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: $font-family-base;
   text-align: center;
-  color: #fff;
+  color: $text-color-invert;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -40,7 +40,7 @@
   z-index: 1;
   padding: 0 8px;
 
-  font-family: 'Dancing Script', cursive;
+  font-family: $font-family-highlight;
   font-size: 1.25em;
 
   &:before {
@@ -51,7 +51,7 @@
     left: 0;
     right: 0;
     height: 19px;
-    background-color: #FF9D24;
+    background-color: $color-orange;
   }
 }
 
