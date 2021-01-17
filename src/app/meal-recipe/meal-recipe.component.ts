@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {MealItem} from "../models/meal.model";
 import {ActivatedRoute, Params} from "@angular/router";
-import {MealService} from "../services/meal.service";
+import {MealService} from "../services/meal/meal.service";
 
 @Component({
   selector: 'app-meal-recipe',
