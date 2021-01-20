@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
+import { InlineSVGModule } from "ng-inline-svg";
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from "./navbar/navbar.component";
@@ -35,7 +36,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    InlineSVGModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
