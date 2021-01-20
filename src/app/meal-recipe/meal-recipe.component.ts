@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {MealItem} from "../models/meal.model";
+import {RecipeModel} from "../models/recipe.model";
 import {ActivatedRoute, Params} from "@angular/router";
 import {MealService} from "../services/meal/meal.service";
 
@@ -9,7 +9,7 @@ import {MealService} from "../services/meal/meal.service";
   styleUrls: ['./meal-recipe.component.scss']
 })
 export class MealRecipeComponent implements OnInit {
-  mealItem: MealItem;
+  meal: RecipeModel;
   mealName: string;
   mealCategory: string;
 
@@ -20,7 +20,7 @@ export class MealRecipeComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.mealCategory = params['category'];
       this.mealName = params['name'];
-      this.mealItem = this.mealService.getRecipe(this.mealCategory, this.mealName);
+      this.meal = this.mealService.getRecipe(this.mealName);
     });
   }
 }

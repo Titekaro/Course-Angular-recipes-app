@@ -1,0 +1,17 @@
+<div class="meal" appHighlightMeal [routerLink]="meal.name">
+
+  <div class="meal__overview">
+    <div class="meal__overview__bg" [ngStyle]="{'background-image': 'url(' + imgUrl +')'}">
+    </div>
+  </div>
+
+  <div class="meal__infos">
+    <h3 class="meal__info__title">
+      {{ meal.name }}
+    </h3>
+    <p class="meal__info__cooking">
+      {{ meal.cookingTime }}
+    </p>
+  </div>
+
+</div>

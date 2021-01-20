@@ -1,0 +1,82 @@
+{
+  "recipes": [
+    {
+      "name": "Chili con carne",
+      "origin": "mexican",
+      "type": "plate",
+      "difficulty": "",
+      "imagePath": "chili-con-carne.jpg",
+      "cookingTime": "",
+      "ingredients": [
+        "",
+        ""
+      ],
+      "description": ""
+    },
+    {
+      "name": "Tuna poke tacos",
+      "origin": "mexican",
+      "type": "plate",
+      "difficulty": "",
+      "imagePath": "tuna-tacos.jpg",
+      "cookingTime": "",
+      "ingredients": [
+        "",
+        ""
+      ],
+      "description": ""
+    },
+    {
+      "name": "Kimchi & bulgogi nachos",
+      "origin": "mexican",
+      "type": "starter",
+      "difficulty": "",
+      "imagePath": "kimchi-nachos.jpg",
+      "cookingTime": "",
+      "ingredients": [
+        "",
+        ""
+      ],
+      "description": ""
+    },
+    {
+      "name": "Saganaki",
+      "origin": "greek",
+      "type": "starter",
+      "difficulty": "easy",
+      "imagePath": "sanagaki.jpg",
+      "cookingTime": "5 min",
+      "ingredients": [
+        "",
+        ""
+      ],
+      "description": ""
+    },
+    {
+      "name": "Moussaka",
+      "origin": "greek",
+      "type": "plate",
+      "difficulty": "",
+      "imagePath": "moussaka.jpg",
+      "cookingTime": "",
+      "ingredients": [
+        "",
+        ""
+      ],
+      "description": ""
+    },
+    {
+      "name": "Saltimbocca",
+      "origin": "italian",
+      "type": "plate",
+      "difficulty": "",
+      "imagePath": "saltimbocca.jpg",
+      "cookingTime": "",
+      "ingredients": [
+        "",
+        ""
+      ],
+      "description": ""
+    }
+  ]
+}

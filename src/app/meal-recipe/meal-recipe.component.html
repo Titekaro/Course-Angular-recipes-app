@@ -1,10 +1,10 @@
 <p>
-  {{mealItem.name}}<br>
-  {{mealItem.timeCooking}}'
+  {{meal.name}}<br>
+  {{meal.cookingTime}}'
 </p>
 <br>
 <ul class="ingredient-list">
-  <li class="ingredient-list__item" *ngFor="let ingredient of mealItem.ingredients">
+  <li class="ingredient-list__item" *ngFor="let ingredient of meal.ingredients">
     {{ingredient}}
   </li>
 </ul>

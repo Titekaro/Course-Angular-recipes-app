@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from "./navbar/navbar.component";
 import { MealsComponent } from './meals/meals.component';
 import { MealListComponent } from './meal-list/meal-list.component';
-import { MealItemComponent } from './meal-item/meal-item.component';
+import { MealComponent } from './meal/meal.component';
 import { MealRecipeComponent } from "./meal-recipe/meal-recipe.component";
 
 import { HighlightMealDirective } from './directives/highlight-meal.directive';
@@ -26,7 +26,7 @@ import { DashboardHomeComponent } from './dashboard/dashboard-home/dashboard-hom
     NavbarComponent,
     MealsComponent,
     MealListComponent,
-    MealItemComponent,
+    MealComponent,
     MealRecipeComponent,
     HighlightMealDirective,
     DropdownDirective,
