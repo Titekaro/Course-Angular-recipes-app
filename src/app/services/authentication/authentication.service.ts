@@ -64,10 +64,11 @@ export class AuthenticationService {
     if (!userData) {
       return;
     }
-    const activeUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpiration), userData.expiresIn);
+    const activeUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationdate), userData.expiresIn);
     if (activeUser.token) { /* Method get token() (from the user model), that checks if we have a valid token */
+      const tokenExpirationDate = new Date(new Date(userData._tokenExpirationdate).getTime() - new Date().getTime()).getTime();
       this.user.next(activeUser);
-      this.autoSignOut(+userData.expiresIn * 1000);
+      this.autoSignOut(tokenExpirationDate);
     }
   }
 
@@ -90,6 +91,7 @@ export class AuthenticationService {
   private handleAuthentication(email: string, id: string, idToken: string, expiresIn: string) {
     const expirationDate = new Date(new Date().getTime() + +expiresIn * 1000);
     const user = new User(email, id, idToken, expirationDate, expiresIn);
+
     this.user.next(user);
     localStorage.setItem('userData', JSON.stringify(user));
     this.router.navigate(['/dashboard']);
