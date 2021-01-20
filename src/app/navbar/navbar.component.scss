@@ -2,14 +2,6 @@
   cursor: pointer !important;
 }
 
-.dropdown {
-  &.show {
-    >.dropdown-menu {
-      display: block;
-    }
-  }
-}
-
 .navbar-brand {
   padding: 0;
 }
