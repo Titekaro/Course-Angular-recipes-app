@@ -13,8 +13,8 @@ import {DashboardHomeComponent} from "./dashboard/dashboard-home/dashboard-home.
 const appRoutes: Routes = [
   {path: '', component: MealsComponent},
   {path: 'meals', component: MealsComponent, children: [
-    {path: ':category', component: MealListComponent},
-    {path: ':category/:name', component: MealRecipeComponent}
+    {path: ':origin', component: MealListComponent},
+    {path: ':origin/:name', component: MealRecipeComponent}
   ]},
   {path: 'authentication', component: AuthenticationComponent, canActivate: [AuthenticationGuard]},
   {path: 'dashboard', component: DashboardComponent, canActivate: [DashboardGuard], children: [
