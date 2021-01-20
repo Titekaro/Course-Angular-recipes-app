@@ -1,3 +1,17 @@
-<p>
-  dashboard works!
-</p>
+<div class="container-fluid min-vh-100 bg-secondary">
+  <div class="row">
+
+    <div class="col-2 p-0 bg-primary-dark min-vh-100">
+      <app-dashboard-sidenav></app-dashboard-sidenav>
+    </div>
+
+    <div class="col-10">
+      <h1 class="h3 pb-2 mb-3 border-bottom">
+        Overview
+      </h1>
+
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+</div>

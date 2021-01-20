@@ -6,8 +6,11 @@
   background-color: $color-primary !important;
 }
 
+.bg-secondary {
+  background-color: $color-secondary !important;
+}
+
 .bg-primary-dark {
-  min-height: 100vh;
   color: $text-color-invert;
   -webkit-font-smoothing: antialiased;
   background-color: #212a39;
@@ -19,4 +22,12 @@
 
 .title-highlight {
   font-family: $font-family-highlight;
+}
+
+.dropdown {
+  &.show {
+    >.dropdown-menu {
+      display: block;
+    }
+  }
 }

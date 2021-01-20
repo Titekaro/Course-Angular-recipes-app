@@ -17,6 +17,8 @@ import { DropdownDirective } from './directives/dropdown.directive';
 import { HeaderComponent } from './header/header.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardSidenavComponent } from './dashboard/dashboard-sidenav/dashboard-sidenav.component';
+import { DashboardHomeComponent } from './dashboard/dashboard-home/dashboard-home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DropdownDirective,
     HeaderComponent,
     AuthenticationComponent,
-    DashboardComponent
+    DashboardComponent,
+    DashboardSidenavComponent,
+    DashboardHomeComponent
   ],
   imports: [
     BrowserModule,
