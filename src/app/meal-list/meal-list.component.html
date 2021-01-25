@@ -2,8 +2,10 @@
   {{mealOrigin}}
 </h2>
 
-<div class="meal-list row">
-  <app-meal class="meal-list__item col-xs-12 col-sm-4" *ngFor="let meal of meals" [meal]="meal"></app-meal>
+<div class="row">
+  <app-meal class="meal-list__item col-xs-12 col-sm-6 col-lg-4"
+            *ngFor="let meal of meals"
+            [meal]="meal"
+            [editMode]="editMode">
+  </app-meal>
 </div>
-
-<router-outlet></router-outlet>

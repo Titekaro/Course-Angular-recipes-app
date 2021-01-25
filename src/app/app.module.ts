@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { InlineSVGModule } from "ng-inline-svg";
@@ -19,6 +19,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardSidenavComponent } from './dashboard/dashboard-sidenav/dashboard-sidenav.component';
 import { DashboardHomeComponent } from './dashboard/dashboard-home/dashboard-home.component';
+import { FormRecipeComponent } from './forms/form-recipe/form-recipe.component';
 
 @NgModule({
   declarations: [
@@ -34,15 +35,17 @@ import { DashboardHomeComponent } from './dashboard/dashboard-home/dashboard-hom
     AuthenticationComponent,
     DashboardComponent,
     DashboardSidenavComponent,
-    DashboardHomeComponent
+    DashboardHomeComponent,
+    FormRecipeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    InlineSVGModule.forRoot()
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        InlineSVGModule.forRoot(),
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-<div class="meal" appHighlightMeal [routerLink]="meal.name">
+<div class="meal" appHighlightMeal [routerLink]="editMode ? null: meal.name">
 
   <div class="meal__overview">
     <div class="meal__overview__bg" [ngStyle]="{'background-image': 'url(' + imgUrl +')'}">
@@ -12,6 +12,11 @@
     <p class="meal__info__cooking">
       {{ meal.cookingTime }}
     </p>
+  </div>
+
+  <div *ngIf="editMode">
+    <button type="button" class="btn btn-dark" [routerLink]="meal.name" (click)="editRecipe()">Edit</button>
+    <button type="button" class="btn btn-danger" (click)="deleteRecipe()">Delete</button>
   </div>
 
 </div>
