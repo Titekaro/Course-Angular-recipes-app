@@ -7,7 +7,9 @@ import {RecipeModel} from "../models/recipe.model";
   styleUrls: ['./meal.component.scss'],
 })
 export class MealComponent implements OnInit {
+  @Input() editMode;
   @Input() meal: RecipeModel;
+
   imgDirectory = './assets/images/';
   imgUrl: string;
 
@@ -15,6 +17,12 @@ export class MealComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.imgUrl = this.imgDirectory + this.meal.origin + '/'+ this.meal.imagePath;
+    this.imgUrl = this.imgDirectory + this.meal.origin + '/' + this.meal.imagePath;
+  }
+
+  private editRecipe() {
+  }
+
+  private deleteRecipe() {
   }
 }

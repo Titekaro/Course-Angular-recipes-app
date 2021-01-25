@@ -1,0 +1,92 @@
+<!--formGroup is part of the ReactiveFormsModule, and indicates that the whole form data are managed by us-->
+<form [formGroup]="recipeForm" class="form" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+
+      <div class="mb-3">
+        <label for="recipeName" class="form-label">
+          Title
+        </label>
+        <input type="text"
+               id="recipeName"
+               class="form-control"
+               formControlName="name">
+      </div>
+
+      <div class="mb-3">
+        <label for="recipePicture" class="form-label">
+          Picture
+        </label>
+        <input type="text"
+               id="recipePicture"
+               class="form-control"
+               formControlName="imagePath">
+      </div>
+
+      <div class="row form-group mb-3">
+        <div class="col-3">
+          <label for="recipeOrigin" class="form-label">
+            Origin
+          </label>
+          <select id="recipeOrigin" class="form-select form-control" formControlName="origin">
+            <option *ngFor="let option of originOptions" [value]="option">{{option}}</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <label for="recipeType" class="form-label">
+            Type
+          </label>
+          <select id="recipeType" class="form-select form-control" formControlName="type">
+            <option *ngFor="let option of typeOptions" [value]="option">{{option}}</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <label for="recipeLevel" class="form-label">
+            Difficulty
+          </label>
+          <select id="recipeLevel" class="form-select form-control" formControlName="difficulty">
+            <option *ngFor="let option of difficultyOptions" [value]="option">{{option}}</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <label for="cookingTime" class="form-label">
+            Cooking time
+          </label>
+          <div class="input-group">
+            <input type="number"
+                   id="cookingTime"
+                   class="form-control"
+                   formControlName="cookingTime">
+            <span class="input-group-text">min</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">
+          Ingredients
+        </label>
+        <input type="text"
+               class="form-control"
+               formControlName="ingredients">
+      </div>
+
+      <div class="mb-3">
+        <label for="recipeDescription" class="form-label">
+          Steps
+        </label>
+        <div class="form-text small mb-3">
+          Explain the steps of the recipe.
+        </div>
+        <textarea id="recipeDescription"
+                  class="form-control"
+                  formControlName="description"
+                  rows="6"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-dark me-3">{{isEditing ? 'Edit' : 'Add'}}</button>
+      <button type="button" class="btn btn-danger">Cancel</button>
+
+    </div>
+  </div>
+</form>

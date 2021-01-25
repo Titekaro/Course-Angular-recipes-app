@@ -9,6 +9,7 @@ import {ActivatedRoute, Params} from "@angular/router";
   styleUrls: ['./meal-list.component.scss']
 })
 export class MealListComponent implements OnInit {
+  editMode = false;
   meals: RecipeModel[];
   mealOrigin: string;
 
@@ -16,6 +17,10 @@ export class MealListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.data.subscribe((data) => {
+      this.editMode = !!data['editMode'];
+    });
+
     this.route.params.subscribe((params: Params) => {
       this.mealOrigin = params['origin'];
       this.meals = this.mealService.getMeals(this.mealOrigin);
