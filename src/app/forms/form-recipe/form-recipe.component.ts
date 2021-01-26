@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormArray, FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Params} from "@angular/router";
 import {MealService} from "../../services/meal/meal.service";
 
@@ -48,7 +48,7 @@ export class FormRecipeComponent implements OnInit {
     let recipeDifficulty = '';
     let recipeImagePath = '';
     let recipeCookingTime = '';
-    let recipeIngredients = [];
+    let recipeIngredients = new FormArray([]);
     let recipeDescription = '';
 
     if (this.isEditing) {
@@ -59,8 +59,15 @@ export class FormRecipeComponent implements OnInit {
       recipeDifficulty = recipe.difficulty;
       recipeImagePath = recipe.imagePath;
       recipeCookingTime = recipe.cookingTime;
-      recipeIngredients = recipe.ingredients;
       recipeDescription = recipe.description;
+
+      if (recipe.ingredients.length > 0) {
+        recipe.ingredients.forEach(ingredient => {
+          recipeIngredients.push(new FormGroup({
+            'ingredient': new FormControl(ingredient)
+          }));
+        });
+      }
     }
 
     this.recipeForm = new FormGroup({
@@ -70,10 +77,14 @@ export class FormRecipeComponent implements OnInit {
       'difficulty': new FormControl(recipeDifficulty),
       'imagePath': new FormControl(recipeImagePath),
       'cookingTime': new FormControl(recipeCookingTime),
-      'ingredients': new FormControl(recipeIngredients),
+      'ingredients': recipeIngredients,
       'description': new FormControl(recipeDescription),
     })
 
+  }
+
+  private get controls() {
+    return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
 
   private getOriginOptions() {
@@ -82,6 +93,15 @@ export class FormRecipeComponent implements OnInit {
         this.originOptions.push(meal.origin);
       }
     });
+  }
+
+  private onAddIngredient() {
+    (<FormArray>this.recipeForm.get('ingredients')).push(new FormGroup({
+      'ingredient': new FormControl()
+    }));
+  }
+
+  private onRemoveIngredient() {
   }
 
   private onSubmit() {

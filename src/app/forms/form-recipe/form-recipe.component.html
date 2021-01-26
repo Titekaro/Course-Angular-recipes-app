@@ -62,13 +62,26 @@
         </div>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-3" formArrayName="ingredients">
         <label class="form-label">
           Ingredients
         </label>
-        <input type="text"
-               class="form-control"
-               formControlName="ingredients">
+        <div class="input-group mb-3"
+             *ngFor="let ingredient of controls; let i = index"
+             [formGroupName]="i">
+          <input type="text"
+                 class="form-control"
+                 formControlName="ingredient">
+          <button type="button"
+                  class="btn btn-danger"
+                  (click)="onRemoveIngredient()">x
+          </button>
+        </div>
+        <button type="button"
+                class="btn btn-secondary d-block"
+                (click)="onAddIngredient()">
+          Add ingredient
+        </button>
       </div>
 
       <div class="mb-3">
