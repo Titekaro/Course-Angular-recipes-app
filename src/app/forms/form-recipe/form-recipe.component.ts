@@ -111,5 +111,10 @@ export class FormRecipeComponent implements OnInit {
   }
 
   private onSubmit() {
+    if (this.isEditing) {
+      this.mealService.updateRecipe(this.recipeName, this.recipeForm.value);
+    } else {
+      this.mealService.addRecipe(this.recipeForm.value);
+    }
   }
 }
