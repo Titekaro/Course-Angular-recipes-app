@@ -25,6 +25,10 @@ export class MealListComponent implements OnInit {
       this.mealOrigin = params['origin'];
       this.meals = this.mealService.getMeals(this.mealOrigin);
     });
+
+    this.mealService.mealsChanged.subscribe((meals: RecipeModel[]) => {
+      this.meals = meals;
+    });
   }
 
 }
