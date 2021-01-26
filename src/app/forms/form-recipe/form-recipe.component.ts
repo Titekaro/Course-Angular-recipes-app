@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup} from "@angular/forms";
+import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Params} from "@angular/router";
 import {MealService} from "../../services/meal/meal.service";
 
@@ -64,21 +64,27 @@ export class FormRecipeComponent implements OnInit {
       if (recipe.ingredients.length > 0) {
         recipe.ingredients.forEach(ingredient => {
           recipeIngredients.push(new FormGroup({
-            'ingredient': new FormControl(ingredient)
+            'ingredient': new FormControl(ingredient, Validators.required)
           }));
         });
       }
     }
 
     this.recipeForm = new FormGroup({
-      'name': new FormControl(recipeName),
-      'origin': new FormControl(recipeOrigin),
-      'type': new FormControl(recipeType),
-      'difficulty': new FormControl(recipeDifficulty),
-      'imagePath': new FormControl(recipeImagePath),
-      'cookingTime': new FormControl(recipeCookingTime),
+      'name': new FormControl(recipeName, Validators.required),
+      'origin': new FormControl(recipeOrigin, Validators.required),
+      'type': new FormControl(recipeType, Validators.required),
+      'difficulty': new FormControl(recipeDifficulty, Validators.required),
+      'imagePath': new FormControl(recipeImagePath, [
+        Validators.required,
+        Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')
+      ]),
+      'cookingTime': new FormControl(recipeCookingTime, [
+        Validators.required,
+        Validators.pattern('[0-9]+')
+      ]),
       'ingredients': recipeIngredients,
-      'description': new FormControl(recipeDescription),
+      'description': new FormControl(recipeDescription, Validators.required),
     })
 
   }
@@ -97,7 +103,7 @@ export class FormRecipeComponent implements OnInit {
 
   private onAddIngredient() {
     (<FormArray>this.recipeForm.get('ingredients')).push(new FormGroup({
-      'ingredient': new FormControl()
+      'ingredient': new FormControl(null, Validators.required)
     }));
   }
 
