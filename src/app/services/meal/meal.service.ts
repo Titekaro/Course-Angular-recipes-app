@@ -25,12 +25,10 @@ export class MealService {
   }
 
   getRecipe(name: string) {
-    this.meals.forEach(meal => {
-      if (meal.name === name) {
-        this.meal = meal;
-      }
+    const mealIndex = this.meals.findIndex(meal => {
+      return meal.name === name;
     });
-    return this.meal;
+    return this.meal = this.meals[mealIndex];
   }
 
   addRecipe(recipe: RecipeModel) {
