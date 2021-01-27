@@ -25,9 +25,7 @@ export class MealService {
   }
 
   getRecipe(name: string) {
-    const mealIndex = this.meals.findIndex(meal => {
-      return meal.name === name;
-    });
+    const mealIndex = this.getMealIndex(name);
     return this.meal = this.meals[mealIndex];
   }
 
@@ -37,10 +35,20 @@ export class MealService {
   }
 
   updateRecipe(name: string, recipe: RecipeModel) {
-    const mealIndex = this.meals.findIndex(meal => {
-      return meal.name === name;
-    });
+    const mealIndex = this.getMealIndex(name);
     this.meals[mealIndex] = recipe;
     this.mealsChanged.next(this.meals);
+  }
+
+  removeRecipe(name: string) {
+    const mealIndex = this.getMealIndex(name);
+    this.meals.splice(mealIndex, 1);
+    this.mealsChanged.next(this.meals);
+  }
+
+  private getMealIndex(name: string) {
+    return this.meals.findIndex(meal => {
+      return meal.name === name;
+    });
   }
 }

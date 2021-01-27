@@ -15,8 +15,8 @@
   </div>
 
   <div *ngIf="editMode">
-    <button type="button" class="btn btn-dark" [routerLink]="meal.name" (click)="editRecipe()">Edit</button>
-    <button type="button" class="btn btn-danger" (click)="deleteRecipe()">Delete</button>
+    <button type="button" class="btn btn-dark" (click)="editRecipe(meal.name)">Edit</button>
+    <button type="button" class="btn btn-danger" (click)="deleteRecipe(meal.name)">Delete</button>
   </div>
 
 </div>
