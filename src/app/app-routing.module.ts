@@ -10,6 +10,7 @@ import {AuthenticationGuard} from "./guards/authentication/authentication.guard"
 import {DashboardGuard} from "./guards/dashboard/dashboard.guard";
 import {DashboardHomeComponent} from "./dashboard/dashboard-home/dashboard-home.component";
 import {FormRecipeComponent} from "./forms/form-recipe/form-recipe.component";
+import {DashboardRecipesComponent} from "./dashboard/dashboard-recipes/dashboard-recipes.component";
 
 const appRoutes: Routes = [
   {path: '', component: MealsComponent},
@@ -20,8 +21,8 @@ const appRoutes: Routes = [
   {path: 'authentication', component: AuthenticationComponent, canActivate: [AuthenticationGuard]},
   {path: 'dashboard', component: DashboardComponent, canActivate: [DashboardGuard], children: [
       {path: 'home', component: DashboardHomeComponent},
-      {path: 'add-recipe', component: FormRecipeComponent},
-      {path: 'recipes', component: MealListComponent, data: {editMode: true}},
+      {path: 'recipes', component: DashboardRecipesComponent},
+      {path: 'recipes/add', component: FormRecipeComponent},
       {path: 'recipes/edit/:name', component: FormRecipeComponent},
       {path: 'stats', component: DashboardHomeComponent},
       {path: 'comments', component: DashboardHomeComponent}

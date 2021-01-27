@@ -9,28 +9,12 @@
         Overview
       </a>
     </li>
-    <li class="nav-item dropdown" appDropdown>
-      <a class="nav-link d-flex align-items-center dropdown-toggle"
-         role="button">
+    <li class="nav-item">
+      <a class="nav-link d-flex align-items-center"
+         [routerLink]="['/dashboard', 'recipes']">
         <div class="icon me-2 d-flex align-items-center" [inlineSVG]="iconDirectoryUrl+'icon-recipe.svg'"></div>
         Recipes
       </a>
-      <ul class="dropdown-menu position-relative pl-4">
-        <li routerLinkActive="active">
-          <a class="nav-link d-flex align-items-center dropdown-item"
-             [routerLink]="['/dashboard', 'add-recipe']">
-            <div class="icon me-2 d-flex align-items-center" [inlineSVG]="iconDirectoryUrl+'icon-add.svg'"></div>
-            Add
-          </a>
-        </li>
-        <li routerLinkActive="active">
-          <a class="nav-link d-flex align-items-center dropdown-item"
-             [routerLink]="['/dashboard', 'recipes']">
-            <div class="icon me-2 d-flex align-items-center" [inlineSVG]="iconDirectoryUrl+'icon-edit.svg'"></div>
-            Manage
-          </a>
-        </li>
-      </ul>
     </li>
     <li class="nav-item">
       <a class="nav-link d-flex align-items-center"
