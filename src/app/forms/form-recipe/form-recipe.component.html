@@ -97,8 +97,16 @@
                   rows="6"></textarea>
       </div>
 
-      <button type="submit" class="btn btn-dark me-3" [disabled]="!recipeForm.valid">{{isEditing ? 'Edit' : 'Add'}}</button>
-      <button type="button" class="btn btn-danger">Cancel</button>
+      <button type="submit"
+              class="btn btn-dark me-3"
+              [disabled]="!recipeForm.valid">
+        {{isEditing ? 'Save' : 'Add'}}
+      </button>
+      <button type="button"
+              class="btn btn-danger"
+              (click)="onCancel()">
+        Cancel
+      </button>
 
     </div>
   </div>
