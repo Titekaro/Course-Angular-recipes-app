@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {RecipeModel} from "../models/recipe.model";
+import {Router} from "@angular/router";
+import {MealService} from "../services/meal/meal.service";
 
 @Component({
   selector: 'app-meal',
@@ -13,16 +15,18 @@ export class MealComponent implements OnInit {
   imgDirectory = './assets/images/';
   imgUrl: string;
 
-  constructor() {
+  constructor(private router: Router, private mealService: MealService) {
   }
 
   ngOnInit() {
     this.imgUrl = this.imgDirectory + this.meal.origin + '/' + this.meal.imagePath;
   }
 
-  private editRecipe() {
+  private editRecipe(name: string) {
+    this.router.navigate(['/dashboard/recipes/edit', name]).then();
   }
 
-  private deleteRecipe() {
+  private deleteRecipe(name: string) {
+    this.mealService.removeRecipe(name);
   }
 }
