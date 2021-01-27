@@ -25,6 +25,9 @@ export class FormRecipeComponent implements OnInit {
   recipeForm: FormGroup;
   isEditing = false;
   recipeName: string;
+  mealOrigin;
+  baseUrl = window.location.origin;
+  imgDirectoryUrl;
 
   constructor(private route: ActivatedRoute, private router: Router, private mealService: MealService) {
   }
@@ -37,7 +40,8 @@ export class FormRecipeComponent implements OnInit {
       this.isEditing = params['name'] != null;
       this.initForm();
     });
-
+    this.mealOrigin = this.recipeForm.get('origin').value;
+    this.imgDirectoryUrl = this.baseUrl + '/assets/images/' + this.mealOrigin + '/';
     this.getOriginOptions();
   }
 
@@ -77,7 +81,7 @@ export class FormRecipeComponent implements OnInit {
       'difficulty': new FormControl(recipeDifficulty, Validators.required),
       'imagePath': new FormControl(recipeImagePath, [
         Validators.required,
-        Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')
+        Validators.pattern('^.*\.([a-z.]{3,4})$')
       ]),
       'cookingTime': new FormControl(recipeCookingTime, [
         Validators.required,
