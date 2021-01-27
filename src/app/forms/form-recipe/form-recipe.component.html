@@ -67,15 +67,13 @@
           Ingredients
         </label>
         <div class="input-group mb-3"
-             *ngFor="let ingredient of controls; let i = index"
-             [formGroupName]="i">
+             *ngFor="let ingredient of controls; let i = index">
           <input type="text"
                  class="form-control"
-                 formControlName="ingredient">
+                 [formControlName]="i">
           <button type="button"
                   class="btn btn-danger"
-                  (click)="onRemoveIngredient()">x
-          </button>
+                  (click)="onRemoveIngredient(i)">x</button>
         </div>
         <button type="button"
                 class="btn btn-secondary d-block"

@@ -67,9 +67,9 @@ export class FormRecipeComponent implements OnInit {
 
       if (recipe.ingredients.length > 0) {
         recipe.ingredients.forEach(ingredient => {
-          recipeIngredients.push(new FormGroup({
-            'ingredient': new FormControl(ingredient, Validators.required)
-          }));
+          recipeIngredients.push(
+            new FormControl(ingredient, Validators.required)
+          );
         });
       }
     }
@@ -106,15 +106,19 @@ export class FormRecipeComponent implements OnInit {
   }
 
   private onAddIngredient() {
-    (<FormArray>this.recipeForm.get('ingredients')).push(new FormGroup({
-      'ingredient': new FormControl(null, Validators.required)
-    }));
+    (<FormArray>this.recipeForm.get('ingredients')).push(
+      new FormControl(null, Validators.required)
+    );
   }
 
-  private onRemoveIngredient() {
+  private onRemoveIngredient(index: number) {
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
 
   private onSubmit() {
+    if (!this.recipeForm.valid) {
+      return;
+    }
     if (this.isEditing) {
       this.mealService.updateRecipe(this.recipeName, this.recipeForm.value);
     } else {
