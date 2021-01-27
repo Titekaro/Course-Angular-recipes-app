@@ -12,7 +12,6 @@
                class="form-control"
                formControlName="name">
       </div>
-
       <div class="mb-3">
         <label for="recipePicture" class="form-label">
           Picture
@@ -20,7 +19,8 @@
         <input type="text"
                id="recipePicture"
                class="form-control"
-               formControlName="imagePath">
+               formControlName="imagePath"
+               #imagePath>
       </div>
 
       <div class="row form-group mb-3">
@@ -108,6 +108,12 @@
         Cancel
       </button>
 
+    </div>
+    <div class="col-12 col-lg-4">
+      <img class="img-fluid mb-3"
+           *ngIf="imagePath.value && recipeForm.get('imagePath').valid"
+           [src]="imgDirectoryUrl + imagePath.value"
+           alt="Preview">
     </div>
   </div>
 </form>
