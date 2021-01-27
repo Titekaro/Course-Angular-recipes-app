@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MealService} from "../services/meal/meal.service";
 import {RecipeModel} from "../models/recipe.model";
 import {ActivatedRoute, Params} from "@angular/router";
@@ -9,7 +9,7 @@ import {ActivatedRoute, Params} from "@angular/router";
   styleUrls: ['./meal-list.component.scss']
 })
 export class MealListComponent implements OnInit {
-  editMode = false;
+  @Input() editMode = false;
   meals: RecipeModel[];
   mealOrigin: string;
 
@@ -17,10 +17,6 @@ export class MealListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.data.subscribe((data) => {
-      this.editMode = !!data['editMode'];
-    });
-
     this.route.params.subscribe((params: Params) => {
       this.mealOrigin = params['origin'];
       this.meals = this.mealService.getMeals(this.mealOrigin);
