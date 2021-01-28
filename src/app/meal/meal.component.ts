@@ -23,7 +23,7 @@ export class MealComponent implements OnInit {
   }
 
   private editRecipe(name: string) {
-    this.router.navigate(['/dashboard/recipes/edit', name]).then();
+    this.router.navigate(['/dashboard/recipes/edit', {name}]).then();
   }
 
   private deleteRecipe(name: string) {

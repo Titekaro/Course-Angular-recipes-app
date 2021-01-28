@@ -129,6 +129,6 @@ export class FormRecipeComponent implements OnInit {
 
   private onCancel() {
     this.recipeForm.reset();
-    this.router.navigate(['dashboard/recipes']).then();
+    this.router.navigate(['../'], {relativeTo: this.route}).then();
   }
 }

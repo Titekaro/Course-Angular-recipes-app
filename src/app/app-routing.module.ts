@@ -23,7 +23,7 @@ const appRoutes: Routes = [
       {path: 'home', component: DashboardHomeComponent},
       {path: 'recipes', component: DashboardRecipesComponent},
       {path: 'recipes/add', component: FormRecipeComponent},
-      {path: 'recipes/edit/:name', component: FormRecipeComponent},
+      {path: 'recipes/edit', component: FormRecipeComponent},
       {path: 'stats', component: DashboardHomeComponent},
       {path: 'comments', component: DashboardHomeComponent}
     ]},
