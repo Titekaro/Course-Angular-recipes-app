@@ -1,7 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MealService} from "../../services/meal/meal.service";
+import {map} from "rxjs/operators";
+import {RecipeModel} from "../../models/recipe.model";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-form-recipe',
@@ -24,6 +27,7 @@ export class FormRecipeComponent implements OnInit {
   originOptions = [];
   recipeForm: FormGroup;
   isEditing = false;
+  recipe: RecipeModel;
   recipeName: string;
   mealOrigin;
   baseUrl = window.location.origin;
@@ -36,6 +40,7 @@ export class FormRecipeComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       if (params['name']) {
         this.recipeName = params['name'];
+        this.recipe = this.mealService.getRecipe(this.recipeName);
       }
       this.isEditing = params['name'] != null;
       this.initForm();
@@ -56,17 +61,16 @@ export class FormRecipeComponent implements OnInit {
     let recipeDescription = '';
 
     if (this.isEditing) {
-      const recipe = this.mealService.getRecipe(this.recipeName);
-      recipeName = recipe.name;
-      recipeOrigin = recipe.origin;
-      recipeType = recipe.type;
-      recipeDifficulty = recipe.difficulty;
-      recipeImagePath = recipe.imagePath;
-      recipeCookingTime = recipe.cookingTime;
-      recipeDescription = recipe.description;
+      recipeName = this.recipe.name;
+      recipeOrigin = this.recipe.origin;
+      recipeType = this.recipe.type;
+      recipeDifficulty = this.recipe.difficulty;
+      recipeImagePath = this.recipe.imagePath;
+      recipeCookingTime = this.recipe.cookingTime;
+      recipeDescription = this.recipe.description;
 
-      if (recipe.ingredients.length > 0) {
-        recipe.ingredients.forEach(ingredient => {
+      if (this.recipe.ingredients.length > 0) {
+        this.recipe.ingredients.forEach(ingredient => {
           recipeIngredients.push(
             new FormControl(ingredient, Validators.required)
           );
@@ -120,7 +124,7 @@ export class FormRecipeComponent implements OnInit {
       return;
     }
     if (this.isEditing) {
-      this.mealService.updateRecipe(this.recipeName, this.recipeForm.value);
+      this.mealService.updateRecipe(this.recipe.id, this.recipeForm.value);
     } else {
       this.mealService.addRecipe(this.recipeForm.value);
     }

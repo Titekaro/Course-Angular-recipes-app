@@ -13,7 +13,9 @@ export class MealListComponent implements OnInit, OnDestroy {
   @Input() editMode = false;
   meals: RecipeModel[];
   mealOrigin: string;
-  mealChangedSubscription: Subscription;
+  mealChangedSub: Subscription;
+  isLoading: boolean;
+  isLoadingSub: Subscription;
 
   constructor(private route: ActivatedRoute, private mealService: MealService) {
   }
@@ -24,13 +26,21 @@ export class MealListComponent implements OnInit, OnDestroy {
       this.meals = this.mealService.getMeals(this.mealOrigin);
     });
 
-    this.mealChangedSubscription = this.mealService.mealsChanged.subscribe((meals: RecipeModel[]) => {
+    this.isLoadingSub = this.mealService.isLoading.subscribe((value: boolean) => {
+      this.isLoading = value;
+    });
+    this.mealChangedSub = this.mealService.mealsChanged.subscribe((meals: RecipeModel[]) => {
       this.meals = meals;
     });
   }
 
   ngOnDestroy() {
-    this.mealChangedSubscription.unsubscribe();
+    if (this.mealChangedSub) {
+      this.mealChangedSub.unsubscribe();
+    }
+    if (this.isLoadingSub) {
+      this.isLoadingSub.unsubscribe();
+    }
   }
 
 }

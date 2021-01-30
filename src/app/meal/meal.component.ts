@@ -26,7 +26,7 @@ export class MealComponent implements OnInit {
     this.router.navigate(['/dashboard/recipes/edit', {name}]).then();
   }
 
-  private deleteRecipe(name: string) {
-    this.mealService.removeRecipe(name);
+  private deleteRecipe(id: string) {
+    this.mealService.removeRecipe(id);
   }
 }
