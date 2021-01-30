@@ -3,6 +3,7 @@ import {CommentModel} from "./comment.model";
 export class RecipeModel {
   constructor(
     public name: string,
+    public id: string,
     public origin: string,
     public type: string,
     public difficulty: string,

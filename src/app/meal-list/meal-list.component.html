@@ -2,7 +2,9 @@
   {{mealOrigin}}
 </h2>
 
-<div class="row">
+<p *ngIf="isLoading">Loading...</p>
+
+<div class="row" *ngIf="!isLoading">
   <app-meal class="meal-list__item col-xs-12 col-sm-6 col-lg-4"
             *ngFor="let meal of meals"
             [meal]="meal"
