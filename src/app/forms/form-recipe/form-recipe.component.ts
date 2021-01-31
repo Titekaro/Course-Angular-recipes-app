@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MealService} from "../../services/meal/meal.service";
-import {map} from "rxjs/operators";
 import {RecipeModel} from "../../models/recipe.model";
 import {Subscription} from "rxjs";
 
@@ -11,27 +10,29 @@ import {Subscription} from "rxjs";
   templateUrl: './form-recipe.component.html',
   styleUrls: ['./form-recipe.component.scss']
 })
-export class FormRecipeComponent implements OnInit {
-  difficultyOptions = [
+export class FormRecipeComponent implements OnInit, OnDestroy {
+  private baseUrl = window.location.origin;
+  private imgDirectoryUrl: string;
+
+  difficulties = [
     'Easy',
     'Moderate',
     'Hard'
   ];
-  typeOptions = [
+  types = [
     'Starter',
     'Soup',
     'Side dish',
     'Main course',
     'Dessert'
   ];
-  originOptions = [];
+  origins;
+  originSub: Subscription;
   recipeForm: FormGroup;
   isEditing = false;
   recipe: RecipeModel;
   recipeName: string;
   mealOrigin;
-  baseUrl = window.location.origin;
-  imgDirectoryUrl;
 
   constructor(private route: ActivatedRoute, private router: Router, private mealService: MealService) {
   }
@@ -47,7 +48,7 @@ export class FormRecipeComponent implements OnInit {
     });
     this.mealOrigin = this.recipeForm.get('origin').value;
     this.imgDirectoryUrl = this.baseUrl + '/assets/images/' + this.mealOrigin + '/';
-    this.getOriginOptions();
+    this.origins = this.mealService.fetchMealOriginData();
   }
 
   private initForm() {
@@ -101,11 +102,10 @@ export class FormRecipeComponent implements OnInit {
     return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
 
-  private getOriginOptions() {
-    this.mealService.getMeals().forEach(meal => {
-      if (this.originOptions.indexOf(meal.origin) === -1) {
-        this.originOptions.push(meal.origin);
-      }
+  private onNewOrigin(origin) {
+    this.mealService.postMealOriginData({origin});
+    this.originSub = this.mealService.getOrigins.subscribe(origins => {
+      this.origins = origins;
     });
   }
 
@@ -135,4 +135,11 @@ export class FormRecipeComponent implements OnInit {
     this.recipeForm.reset();
     this.router.navigate(['../'], {relativeTo: this.route}).then();
   }
+
+  ngOnDestroy() {
+    if (this.originSub) {
+      this.originSub.unsubscribe();
+    }
+  }
+
 }

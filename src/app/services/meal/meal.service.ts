@@ -12,8 +12,10 @@ export class MealService {
   private apiUrl = 'https://recipes-app-1f8a7-default-rtdb.europe-west1.firebasedatabase.app/';
   private meals: RecipeModel[];
   private mealsWithOrigin: RecipeModel[];
+  origins = [];
   mealsChanged = new Subject<RecipeModel[]>();
   isLoading = new Subject<boolean>();
+  getOrigins = new Subject();
 
   constructor(private http: HttpClient) {
   }
@@ -101,5 +103,39 @@ export class MealService {
     } else {
       return this.meals;
     }
+  }
+
+  /**
+   * Get a list of existing origins in database.
+   * @Todo we could get this in meals and create an array of origins, instead of have annother json in database.
+   */
+  fetchMealOriginData() {
+    this.http.get(this.apiUrl + 'origins.json').pipe(map(origins => {
+      const array = [];
+      for (const key in origins) {
+        array.push({...origins[key], id: key})
+      }
+      return array;
+    })).subscribe(origins => {
+      this.origins = origins;
+      this.getOrigins.next(this.origins);
+    }, (error) => {
+      console.log(error);
+    }, () => {
+    });
+    return this.origins;
+  }
+
+  /**
+   * Add a new origin in database.
+   * @param origin
+   */
+  postMealOriginData(origin: object) {
+    this.http.post<object>(this.apiUrl + 'origins.json', origin).subscribe(() => {
+    }, (error) => {
+      console.log(error);
+    }, () => {
+      this.fetchMealOriginData();
+    });
   }
 }
