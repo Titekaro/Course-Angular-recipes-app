@@ -125,7 +125,7 @@
     <div class="col-12 col-lg-4">
       <img class="img-fluid mb-3"
            *ngIf="imagePath.value && recipeForm.get('imagePath').valid"
-           [src]="imgDirectoryUrl + imagePath.value"
+           [src]="imagePath.value"
            alt="Preview">
     </div>
   </div>
