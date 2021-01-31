@@ -17,22 +17,10 @@
             Recipes
           </a>
           <ul class="dropdown-menu">
-            <li routerLinkActive="active">
+            <li routerLinkActive="active" *ngFor="let origin of origins">
               <a class="dropdown-item"
-                 [routerLink]="['/meals', 'mexican']">
-                Mexican
-              </a>
-            </li>
-            <li routerLinkActive="active">
-              <a class="dropdown-item"
-                 [routerLink]="['/meals', 'italian']">
-                Italian
-              </a>
-            </li>
-            <li routerLinkActive="active">
-              <a class="dropdown-item"
-                 [routerLink]="['/meals', 'greek']">
-                Greek
+                 [routerLink]="['/meals', origin.origin]">
+                {{origin.origin}}
               </a>
             </li>
           </ul>
