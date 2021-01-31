@@ -81,7 +81,7 @@ export class FormRecipeComponent implements OnInit {
       'difficulty': new FormControl(recipeDifficulty, Validators.required),
       'imagePath': new FormControl(recipeImagePath, [
         Validators.required,
-        Validators.pattern('^.*\.([a-z.]{3,4})$')
+        Validators.pattern('^.{1,}([.])([a-z.]{3,4})$')
       ]),
       'cookingTime': new FormControl(recipeCookingTime, [
         Validators.required,
