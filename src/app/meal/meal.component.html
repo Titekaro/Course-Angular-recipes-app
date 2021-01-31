@@ -1,7 +1,7 @@
-<div class="meal" appHighlightMeal [routerLink]="editMode ? null: meal.name">
+<div class="meal" appHighlightMeal (click)="selectMeal(meal.name)">
 
   <div class="meal__overview">
-    <div class="meal__overview__bg" [ngStyle]="{'background-image': 'url(' + imgUrl +')'}">
+    <div class="meal__overview__bg" [ngStyle]="{'background-image': 'url(' + meal.imagePath +')'}">
     </div>
   </div>
 

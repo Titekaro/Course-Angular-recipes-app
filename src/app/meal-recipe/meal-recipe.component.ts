@@ -9,9 +9,8 @@ import {MealService} from "../services/meal/meal.service";
   styleUrls: ['./meal-recipe.component.scss']
 })
 export class MealRecipeComponent implements OnInit {
-  meal: RecipeModel;
-  mealName: string;
   mealCategory: string;
+  meal: RecipeModel;
 
   constructor(private route: ActivatedRoute, private mealService: MealService) {
   }
@@ -19,8 +18,11 @@ export class MealRecipeComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.mealCategory = params['category'];
-      this.mealName = params['name'];
-      this.meal = this.mealService.getRecipe(this.mealName);
+      this.getMeal(params['name']);
     });
+  }
+
+  private getMeal(name: string) {
+    this.meal = this.mealService.getRecipe(name);
   }
 }

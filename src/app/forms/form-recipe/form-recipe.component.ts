@@ -11,9 +11,6 @@ import {Subscription} from "rxjs";
   styleUrls: ['./form-recipe.component.scss']
 })
 export class FormRecipeComponent implements OnInit, OnDestroy {
-  private baseUrl = window.location.origin;
-  private imgDirectoryUrl: string;
-
   difficulties = [
     'Easy',
     'Moderate',
@@ -29,10 +26,9 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
   origins;
   originSub: Subscription;
   recipeForm: FormGroup;
-  isEditing = false;
   recipe: RecipeModel;
   recipeName: string;
-  mealOrigin;
+  isEditing = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private mealService: MealService) {
   }
@@ -46,8 +42,6 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
       this.isEditing = params['name'] != null;
       this.initForm();
     });
-    this.mealOrigin = this.recipeForm.get('origin').value;
-    this.imgDirectoryUrl = this.baseUrl + '/assets/images/' + this.mealOrigin + '/';
     this.origins = this.mealService.fetchMealOriginData();
   }
 
