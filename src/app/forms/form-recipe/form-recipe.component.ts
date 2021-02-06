@@ -27,22 +27,18 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
   originSub: Subscription;
   recipeForm: FormGroup;
   recipe: RecipeModel;
-  recipeName: string;
   isEditing = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private mealService: MealService) {
   }
 
   ngOnInit() {
+    this.recipe = this.route.snapshot.data['recipe'];
+    this.origins = this.route.snapshot.data['origins'];
     this.route.params.subscribe((params: Params) => {
-      if (params['name']) {
-        this.recipeName = params['name'];
-        this.recipe = this.mealService.getRecipe(this.recipeName);
-      }
       this.isEditing = params['name'] != null;
-      this.initForm();
     });
-    this.origins = this.mealService.fetchMealOriginData();
+    this.initForm();
   }
 
   private initForm() {
