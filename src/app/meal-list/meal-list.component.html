@@ -5,8 +5,9 @@
 <p *ngIf="isLoading">Loading...</p>
 
 <div class="row" *ngIf="!isLoading">
-  <app-meal class="meal-list__item col-xs-12 col-sm-6 col-lg-4"
-            *ngFor="let meal of meals"
+  <app-meal *ngFor="let meal of meals"
+            class="d-flex"
+            [ngClass]="{'col-xs-12 col-sm-6 col-lg-4 col-xl-3': !editMode}"
             [meal]="meal"
             [editMode]="editMode">
   </app-meal>

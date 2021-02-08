@@ -9,6 +9,7 @@ import {MealService} from "../services/meal/meal.service";
   styleUrls: ['./meal.component.scss'],
 })
 export class MealComponent implements OnInit {
+  iconDirectoryUrl = 'assets/icons/';
   @Input() editMode;
   @Input() meal: RecipeModel;
 
@@ -23,6 +24,10 @@ export class MealComponent implements OnInit {
       return;
     }
     this.router.navigate([name], {relativeTo: this.route}).then();
+  }
+
+  private showRecipe() {
+
   }
 
   private editRecipe(name: string) {
