@@ -11,8 +11,6 @@ import { MealsComponent } from './meals/meals.component';
 import { MealListComponent } from './meal-list/meal-list.component';
 import { MealComponent } from './meal/meal.component';
 import { MealRecipeComponent } from "./meal-recipe/meal-recipe.component";
-
-import { HighlightMealDirective } from './directives/highlight-meal.directive';
 import { DropdownDirective } from './directives/dropdown.directive';
 import { HeaderComponent } from './header/header.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
@@ -30,7 +28,6 @@ import { DashboardRecipesComponent } from './dashboard/dashboard-recipes/dashboa
     MealListComponent,
     MealComponent,
     MealRecipeComponent,
-    HighlightMealDirective,
     DropdownDirective,
     HeaderComponent,
     AuthenticationComponent,

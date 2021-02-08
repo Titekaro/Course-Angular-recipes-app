@@ -1,0 +1,25 @@
+.icon-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  width: $icon-size;
+  margin: 0 3px;
+}
+
+.icon-text {
+  margin: 0 3px;
+}
+
+.icon-link {
+  color: inherit;
+  cursor: pointer;
+  width: $icon-size * 1.2;
+
+  &:hover {
+    color: inherit;
+  }
+}
