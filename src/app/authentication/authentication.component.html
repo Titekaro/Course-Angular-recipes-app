@@ -52,9 +52,7 @@
           Loading...
         </p>
 
-        <p class="mt-4 alert alert-danger" *ngIf="error">
-          {{error}}
-        </p>
+        <app-modal-alert [message]="error" *ngIf="error"></app-modal-alert>
 
       </div>
 
