@@ -1,72 +1,21 @@
 @import "../../assets/styles/variables";
 
 .meal {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   transition: box-shadow .3s;
 
   &:hover {
     box-shadow: 0 2px 15px rgba($color-primary, .8);
     transition: box-shadow .3s;
-
-    .meal-preview {
-      transform: scale(1.02, 1.02);
-      transition: .5s;
-    }
   }
 }
 
 .meal-strip {
+  display: flex;
   width: 100%;
   color: $text-color-primary;
   border: 1px solid rgba($color-primary, .125);
   border-radius: .25rem;
-}
-
-.meal-preview-wrapper {
-  overflow: hidden;
-
-  > .meal-preview {
-    transition: .5s;
-
-    &:after {
-      content: '';
-      display: block;
-      padding-bottom: 115%;
-    }
-  }
-}
-
-.meal-preview {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.meal-body {
-  padding: 5px 10px;
-  text-align: center;
-  -webkit-font-smoothing: antialiased;
-}
-
-.meal-title {
-  font-size: 26px;
-  font-family: $font-family-highlight;
-}
-
-.meal-info {
-  font-size: 14px;
-  font-family: $font-family-base;
-
-  > .icon-group {
-    &:not(:last-of-type) {
-      &:after {
-        content: "|";
-        margin: 0 3px;
-      }
-    }
-
-    > .icon {
-      fill: $text-color-invert;
-    }
-  }
 }

@@ -1,0 +1,31 @@
+@import "../../../assets/styles/variables";
+
+.meal-info-wrapper {
+  height: 100%;
+  padding: 5px 10px;
+  color: $text-color-invert;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.meal-title {
+  font-size: 26px;
+  font-family: $font-family-highlight;
+}
+
+.meal-info {
+  font-size: 14px;
+
+  > .icon-group {
+    &:not(:last-of-type) {
+      &:after {
+        content: "|";
+        margin: 0 3px;
+      }
+    }
+
+    > .icon {
+      fill: $text-color-invert;
+    }
+  }
+}

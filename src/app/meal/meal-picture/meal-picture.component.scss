@@ -1,0 +1,24 @@
+.zoom {
+  &:hover {
+    > .meal-picture {
+      transform: scale(1.02, 1.02);
+    }
+  }
+}
+
+.meal-picture-wrapper {
+  overflow: hidden;
+}
+
+.meal-picture {
+  transition: .5s;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: 115%;
+  }
+}

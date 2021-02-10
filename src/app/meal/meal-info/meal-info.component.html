@@ -1,0 +1,21 @@
+<div class="meal-info-wrapper" [ngStyle]="{'background-color': '#FF9D24'}">
+  <h5 class="meal-title">{{ meal.name }}</h5>
+  <div class="meal-info">
+    <div class="icon-group">
+      <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-type.svg'"></div>
+      <span class="icon-text">{{ meal.type }}</span>
+    </div>
+    <div class="icon-group">
+      <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-chef.svg'"></div>
+      <span class="icon-text">{{ meal.difficulty }}</span>
+    </div>
+    <div class="icon-group">
+      <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-time.svg'"></div>
+      <span class="icon-text">{{ meal.cookingTime }}'</span>
+    </div>
+    <div class="icon-group">
+      <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-cart.svg'"></div>
+      <span class="icon-text">{{ meal.ingredients.length }}</span>
+    </div>
+  </div>
+</div>

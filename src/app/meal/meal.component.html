@@ -1,58 +1,29 @@
 <div class="meal text-light cursor-pointer mb-3"
      *ngIf="!editMode else mealEdit"
-     [ngStyle]="{'background-color': '#FF9D24'}"
      (click)="selectMeal(meal.name)">
 
-  <div class="meal-preview-wrapper">
-    <div class="meal-preview" [ngStyle]="{'background-image': 'url(' + meal.imagePath +')'}">
-    </div>
-  </div>
-
-  <div class="meal-body">
-    <h5 class="meal-title">{{ meal.name }}</h5>
-    <div class="meal-info text-center">
-      <div class="icon-group">
-        <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-type.svg'"></div>
-        <span class="icon-text">{{ meal.type }}</span>
-      </div>
-      <div class="icon-group">
-        <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-trophy.svg'"></div>
-        <span class="icon-text">{{ meal.difficulty }}</span>
-      </div>
-      <div class="icon-group">
-        <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-time.svg'"></div>
-        <span class="icon-text">{{ meal.cookingTime }}'</span>
-      </div>
-      <div class="icon-group">
-        <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-cart.svg'"></div>
-        <span class="icon-text">{{ meal.ingredients.length }}</span>
-      </div>
-    </div>
-  </div>
+  <app-meal-picture [image]="meal.imagePath" [zoomEffect]="true"></app-meal-picture>
+  <app-meal-info class="flex-grow-1" [meal]="meal"></app-meal-info>
 
 </div>
 
 <ng-template #mealEdit>
-  <div class="meal-strip btn-group d-flex mb-3">
+  <div class="meal-strip btn-group mb-3">
     <div class="row flex-grow-1">
-
       <div class="col-2 p-0">
-        <div class="meal-preview"
-             [ngStyle]="{'background-image': 'url(' + meal.imagePath +')', 'height': '100%'}">
-        </div>
+        <app-meal-picture [image]="meal.imagePath"></app-meal-picture>
       </div>
 
       <div class="col-10 p-0">
-        <div class="meal-body text-start">
+        <div class="p-3">
           <div class="icon-group">
-            <h5 class="meal-title d-inline-block me-2">{{ meal.name }}</h5>
+            <h5 class="meal-title d-inline-block mb-0 me-2">{{ meal.name }}</h5>
             <a class="icon icon-link"
                title="preview"
                [inlineSVG]="iconDirectoryUrl+'icon-preview.svg'"
                (click)="showRecipe(meal)"></a>
           </div>
-
-          <div class="meal-info text-start">
+          <div class="meal-info">
             <div class="icon-group">
               <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-geo.svg'"></div>
               <span class="icon-text">{{ meal.origin }}</span>
@@ -60,8 +31,8 @@
           </div>
         </div>
       </div>
-
     </div>
+
     <button type="button"
             class="btn btn-dark flex-grow-0"
             (click)="editRecipe(meal.name)">
