@@ -1,0 +1,9 @@
+<div class="recipe-block">
+  <h5 class="recipe-block-title">Ingredients</h5>
+
+  <ul class="ingredient-list" *ngIf="ingredients.length > 0">
+    <li class="ingredient-list__item" *ngFor="let ingredient of ingredients">
+      {{ ingredient }}
+    </li>
+  </ul>
+</div>

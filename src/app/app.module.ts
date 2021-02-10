@@ -22,6 +22,13 @@ import { DashboardRecipesComponent } from './dashboard/dashboard-recipes/dashboa
 import { ModalRecipeComponent } from './modals/modal-recipe/modal-recipe.component';
 import { ModalRecipeDirective } from './directives/modal-recipe.directive';
 import { ModalComponent } from './modals/modal/modal.component';
+import { RecipeStepsComponent } from './recipe/recipe-steps/recipe-steps.component';
+import { RecipeIngredientsComponent } from './recipe/recipe-ingredients/recipe-ingredients.component';
+import { RecipeCommentsComponent } from './recipe/recipe-comments/recipe-comments.component';
+import { RecipeOverviewComponent } from './recipe/recipe-overview/recipe-overview.component';
+import { MealInfoComponent } from './meal/meal-info/meal-info.component';
+import { MealPictureComponent } from './meal/meal-picture/meal-picture.component';
+import { FormCommentComponent } from './forms/form-comment/form-comment.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +48,14 @@ import { ModalComponent } from './modals/modal/modal.component';
     DashboardRecipesComponent,
     ModalRecipeComponent,
     ModalRecipeDirective,
-    ModalComponent
+    ModalComponent,
+    RecipeStepsComponent,
+    RecipeIngredientsComponent,
+    RecipeCommentsComponent,
+    RecipeOverviewComponent,
+    MealInfoComponent,
+    MealPictureComponent,
+    FormCommentComponent
   ],
     imports: [
         BrowserModule,
