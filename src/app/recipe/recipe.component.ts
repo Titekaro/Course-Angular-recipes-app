@@ -3,11 +3,11 @@ import {RecipeModel} from "../models/recipe.model";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-meal-recipe',
-  templateUrl: './meal-recipe.component.html',
-  styleUrls: ['./meal-recipe.component.scss']
+  selector: 'app-recipe',
+  templateUrl: './recipe.component.html',
+  styleUrls: ['./recipe.component.scss']
 })
-export class MealRecipeComponent implements OnInit {
+export class RecipeComponent implements OnInit {
   @Input() meal: RecipeModel;
 
   constructor(private route: ActivatedRoute) {

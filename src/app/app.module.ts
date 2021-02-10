@@ -10,7 +10,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { MealsComponent } from './meals/meals.component';
 import { MealListComponent } from './meal-list/meal-list.component';
 import { MealComponent } from './meal/meal.component';
-import { MealRecipeComponent } from "./meal-recipe/meal-recipe.component";
+import { RecipeComponent } from "./recipe/recipe.component";
 import { DropdownDirective } from './directives/dropdown.directive';
 import { HeaderComponent } from './header/header.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
@@ -30,7 +30,7 @@ import { ModalComponent } from './modals/modal/modal.component';
     MealsComponent,
     MealListComponent,
     MealComponent,
-    MealRecipeComponent,
+    RecipeComponent,
     DropdownDirective,
     HeaderComponent,
     AuthenticationComponent,
