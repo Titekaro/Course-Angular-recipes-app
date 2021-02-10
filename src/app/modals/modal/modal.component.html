@@ -1,0 +1,30 @@
+<div class="modal-backdrop" (click)="close()"></div>
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" *ngIf="header">
+        <ng-content select="[header]"></ng-content>
+        <button type="button" class="btn-close" (click)="close()"></button>
+      </div>
+      <div class="modal-body" *ngIf="body">
+        <p class="mb-0 text-start" *ngIf="message">
+          {{ message }}
+        </p>
+        <ng-content select="[body]"></ng-content>
+      </div>
+      <div class="modal-footer" *ngIf="footer">
+        <ng-content select="#footer"></ng-content>
+        <button type="button"
+                class="btn btn-dark modal-close"
+                *ngIf="footerConfirmTextBtn"
+                (click)="confirm()">{{ footerConfirmTextBtn }}
+        </button>
+        <button type="button"
+                class="btn btn-dark modal-close"
+                *ngIf="footerCloseTextBtn"
+                (click)="close()">{{ footerCloseTextBtn }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -19,9 +19,9 @@ import { DashboardSidenavComponent } from './dashboard/dashboard-sidenav/dashboa
 import { DashboardHomeComponent } from './dashboard/dashboard-home/dashboard-home.component';
 import { FormRecipeComponent } from './forms/form-recipe/form-recipe.component';
 import { DashboardRecipesComponent } from './dashboard/dashboard-recipes/dashboard-recipes.component';
-import { ModalAlertComponent } from './modals/modal-alert/modal-alert.component';
 import { ModalRecipeComponent } from './modals/modal-recipe/modal-recipe.component';
 import { ModalRecipeDirective } from './directives/modal-recipe.directive';
+import { ModalComponent } from './modals/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +39,9 @@ import { ModalRecipeDirective } from './directives/modal-recipe.directive';
     DashboardHomeComponent,
     FormRecipeComponent,
     DashboardRecipesComponent,
-    ModalAlertComponent,
     ModalRecipeComponent,
-    ModalRecipeDirective
+    ModalRecipeDirective,
+    ModalComponent
   ],
     imports: [
         BrowserModule,

@@ -47,4 +47,8 @@ export class AuthenticationComponent implements OnInit {
         this.isLoading = false;
       });
   }
+
+  private onCloseModal() {
+    this.error = null;
+  }
 }

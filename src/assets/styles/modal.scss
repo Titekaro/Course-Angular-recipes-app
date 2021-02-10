@@ -4,7 +4,7 @@
 }
 
 .modal {
-  display: block !important;
+  display: block;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -20,12 +20,9 @@
   background-color: $bg-color;
 }
 
-.modal-header {
+.modal-header,
+.modal-footer {
   border: none;
-}
-
-.modal-body {
-  padding: 15px 25px;
 }
 
 .modal-close {
