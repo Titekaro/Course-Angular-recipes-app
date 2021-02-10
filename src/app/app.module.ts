@@ -20,6 +20,8 @@ import { DashboardHomeComponent } from './dashboard/dashboard-home/dashboard-hom
 import { FormRecipeComponent } from './forms/form-recipe/form-recipe.component';
 import { DashboardRecipesComponent } from './dashboard/dashboard-recipes/dashboard-recipes.component';
 import { ModalAlertComponent } from './modals/modal-alert/modal-alert.component';
+import { ModalRecipeComponent } from './modals/modal-recipe/modal-recipe.component';
+import { ModalRecipeDirective } from './directives/modal-recipe.directive';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ModalAlertComponent } from './modals/modal-alert/modal-alert.component'
     DashboardHomeComponent,
     FormRecipeComponent,
     DashboardRecipesComponent,
-    ModalAlertComponent
+    ModalAlertComponent,
+    ModalRecipeComponent,
+    ModalRecipeDirective
   ],
     imports: [
         BrowserModule,
@@ -48,7 +52,8 @@ import { ModalAlertComponent } from './modals/modal-alert/modal-alert.component'
         ReactiveFormsModule
     ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalRecipeComponent]
 })
 
 export class AppModule {

@@ -1,0 +1,13 @@
+<div class="modal-backdrop" (click)="close()"></div>
+<div class="modal modal-recipe">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" (click)="close()"></button>
+      </div>
+      <div class="modal-body">
+        <app-meal-recipe [meal]="meal"></app-meal-recipe>
+      </div>
+    </div>
+  </div>
+</div>
