@@ -52,7 +52,12 @@
           Loading...
         </p>
 
-        <app-modal-alert [message]="error" *ngIf="error"></app-modal-alert>
+        <app-modal *ngIf="error"
+                   [header]="false"
+                   [footer]="true"
+                   [message]="error"
+                   [footerCloseTextBtn]="'Ok'"
+                   (closeModal)="onCloseModal()"></app-modal>
 
       </div>
 
