@@ -1,0 +1,22 @@
+.bullet-list {
+  padding: 0;
+  list-style: none;
+
+  > li {
+    display: inline-block;
+  }
+}
+
+.bullet {
+  display: inline-block;
+  width: $bullet-width;
+  height: $bullet-width;
+  margin: 0 3px;
+
+  border-radius: 50%;
+  background-color: rgba($bullet-color, .3);
+}
+
+.bullet-active {
+  background-color: $bullet-color;
+}
