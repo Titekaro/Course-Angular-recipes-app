@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {RecipeModel} from "../models/recipe.model";
 import {ActivatedRoute} from "@angular/router";
 
@@ -9,6 +9,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class RecipeComponent implements OnInit {
   @Input() meal: RecipeModel;
+  @Output() mealData = new EventEmitter<boolean>();
 
   constructor(private route: ActivatedRoute) {
   }
@@ -17,5 +18,6 @@ export class RecipeComponent implements OnInit {
     if (!this.meal) {
       this.meal = this.route.snapshot.data['meal'];
     }
+    this.mealData.emit(true);
   }
 }

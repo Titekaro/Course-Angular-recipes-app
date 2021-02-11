@@ -4,7 +4,11 @@
 
 <p *ngIf="isLoading">Loading...</p>
 
-<div class="row" *ngIf="!isLoading">
+<div *ngIf="!meals || meals?.length < 1">
+  Unfortunately there is no {{ mealOrigin }} meal available yet :(
+</div>
+
+<div class="row" *ngIf="!isLoading && meals?.length > 0">
   <app-meal *ngFor="let meal of meals"
             class="d-flex"
             [ngClass]="{'col-xs-12 col-sm-6 col-lg-4 col-xl-3': !editMode}"
