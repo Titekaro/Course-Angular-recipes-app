@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {MealService} from "../services/meal/meal.service";
 import {RecipeModel} from "../models/recipe.model";
 import {ActivatedRoute, Params} from "@angular/router";
@@ -16,6 +16,7 @@ export class MealListComponent implements OnInit, OnDestroy {
   mealChangedSub: Subscription;
   isLoading: boolean;
   isLoadingSub: Subscription;
+  @Output() mealData = new EventEmitter<boolean>();
 
   constructor(private route: ActivatedRoute, private mealService: MealService) {
   }
@@ -23,6 +24,7 @@ export class MealListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.mealOrigin = params['origin'];
+      this.mealData.emit(true);
       this.meals = this.mealService.getMeals(this.mealOrigin);
     });
 
