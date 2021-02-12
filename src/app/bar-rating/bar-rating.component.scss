@@ -1,0 +1,37 @@
+@import "src/assets/styles/variables";
+
+.star-list {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+
+  > li {
+    display: inline-block;
+  }
+}
+
+a.icon-star {
+  margin: 0;
+  padding: 0 3px;
+  box-sizing: content-box;
+  color: inherit;
+
+  > svg {
+    > #star-border {
+      fill: currentColor !important;
+    }
+
+    > #star-fill {
+      fill: transparent;
+    }
+  }
+
+  &.active {
+    > svg {
+      > #star-fill,
+      > #star-border {
+        fill: currentColor !important;
+      }
+    }
+  }
+}
