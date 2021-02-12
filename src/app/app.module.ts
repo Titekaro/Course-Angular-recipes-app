@@ -29,6 +29,7 @@ import { RecipeOverviewComponent } from './recipe/recipe-overview/recipe-overvie
 import { MealInfoComponent } from './meal/meal-info/meal-info.component';
 import { MealPictureComponent } from './meal/meal-picture/meal-picture.component';
 import { FormCommentComponent } from './forms/form-comment/form-comment.component';
+import { BarRatingComponent } from './bar-rating/bar-rating.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { FormCommentComponent } from './forms/form-comment/form-comment.componen
     RecipeOverviewComponent,
     MealInfoComponent,
     MealPictureComponent,
-    FormCommentComponent
+    FormCommentComponent,
+    BarRatingComponent
   ],
     imports: [
         BrowserModule,
