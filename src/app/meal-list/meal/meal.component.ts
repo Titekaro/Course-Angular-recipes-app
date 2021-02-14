@@ -1,9 +1,9 @@
 import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild} from '@angular/core';
-import {RecipeModel} from "../models/recipe.model";
+import {RecipeModel} from "../../models/recipe.model";
 import {ActivatedRoute, Router} from "@angular/router";
-import {MealService} from "../services/meal/meal.service";
-import {ModalRecipeComponent} from "../modals/modal-recipe/modal-recipe.component";
-import {ModalRecipeDirective} from "../directives/modal-recipe.directive";
+import {MealService} from "../../services/meal/meal.service";
+import {ModalRecipeComponent} from "../../modals/modal-recipe/modal-recipe.component";
+import {ModalRecipeDirective} from "../../directives/modal-recipe.directive";
 import {Subscription} from "rxjs";
 
 @Component({
