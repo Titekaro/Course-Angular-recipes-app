@@ -1,0 +1,31 @@
+.modal-backdrop {
+  background-color: $color-primary-dark !important;
+  opacity: .5;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  min-width: 50vw;
+  height: auto;
+  z-index: 9999;
+  color: $text-color-primary;
+}
+
+.modal-content {
+  background-color: $bg-color;
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+.modal-close {
+  position: relative;
+  right: 0;
+}

@@ -1,0 +1,32 @@
+.comment-wrapper {
+  margin: 0;
+}
+
+.comment {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-style: italic;
+
+  &:before {
+    content: '"';
+  }
+
+  &:after {
+    content: '"';
+  }
+}
+
+.comment-author {
+  text-align: right;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.comment-pagination {
+  text-align: center;
+
+  > a {
+    color: $color-primary;
+    font-size: 12px;
+  }
+}
