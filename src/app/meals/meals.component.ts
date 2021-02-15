@@ -8,7 +8,7 @@ import {MealService} from "../services/meal/meal.service";
   providers: [MealService]
 })
 export class MealsComponent implements OnInit {
-  private data = false;
+  data = false;
 
   constructor() {
   }

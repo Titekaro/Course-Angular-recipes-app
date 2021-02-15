@@ -23,7 +23,7 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
     'Main course',
     'Dessert'
   ];
-  origins;
+  origins: object;
   originSub: Subscription;
   addNewOrigin = false;
   recipeForm: FormGroup;
@@ -89,7 +89,7 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
 
   }
 
-  private get controls() {
+  get controls() {
     return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
 
@@ -109,17 +109,17 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
     this.addNewOrigin = false;
   }
 
-  private onAddIngredient() {
+  onAddIngredient() {
     (<FormArray>this.recipeForm.get('ingredients')).push(
       new FormControl(null, Validators.required)
     );
   }
 
-  private onRemoveIngredient(index: number) {
+  onRemoveIngredient(index: number) {
     (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
 
-  private onSubmit() {
+  onSubmit() {
     if (!this.recipeForm.valid) {
       return;
     }
@@ -131,7 +131,7 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
     this.onCancel();
   }
 
-  private onCancel() {
+  onCancel() {
     this.recipeForm.reset();
     this.router.navigate(['../'], {relativeTo: this.route}).then();
   }
