@@ -69,9 +69,21 @@
     </button>
     <button type="button"
             class="btn btn-danger flex-grow-0"
-            (click)="deleteRecipe(meal.id)">
+            (click)="onConfirmDeleteMeal()">
       Delete
     </button>
+    <!--Confirm delete modal-->
+    <app-modal *ngIf="confirmDeleteMeal"
+               [header]="false"
+               [footer]="true"
+               [footerConfirmTextBtn]="'Yes'"
+               [footerCloseTextBtn]="'Cancel'"
+               (confirmModal)="deleteMeal(meal.id)"
+               (closeModal)="abortDeleteMeal()">
+      <ng-container body>
+        Are you sure you want to delete the <strong><i>{{meal.name}}</i></strong> meal?
+      </ng-container>
+    </app-modal>
   </div>
 </ng-template>
 
