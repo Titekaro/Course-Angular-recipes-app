@@ -14,6 +14,7 @@ import {Subscription} from "rxjs";
 export class MealComponent implements OnInit {
   private closePreviewSub: Subscription;
   private iconDirectoryUrl = 'assets/icons/';
+  confirmDeleteMeal = false;
   @Input() editMode;
   @Input() meal: RecipeModel;
   @ViewChild(ModalRecipeDirective) modalRecipe: ModalRecipeDirective;
@@ -51,7 +52,15 @@ export class MealComponent implements OnInit {
     this.router.navigate(['edit', {name}], {relativeTo: this.route}).then();
   }
 
-  private deleteRecipe(id: string) {
+  private onConfirmDeleteMeal() {
+    this.confirmDeleteMeal = true;
+  }
+
+  private deleteMeal(id: string) {
     this.mealService.removeRecipe(id);
+  }
+
+  private abortDeleteMeal() {
+    this.confirmDeleteMeal = false;
   }
 }
