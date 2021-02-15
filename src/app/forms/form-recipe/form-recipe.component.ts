@@ -25,6 +25,7 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
   ];
   origins;
   originSub: Subscription;
+  addNewOrigin = false;
   recipeForm: FormGroup;
   recipe: RecipeModel;
   isEditing = false;
@@ -92,11 +93,20 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
     return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
 
-  private onNewOrigin(origin) {
+  newOrigin() {
+    this.addNewOrigin = true;
+  }
+
+  onConfirmNewOrigin(origin) {
     this.mealService.postMealOriginData({origin});
     this.originSub = this.mealService.getOrigins.subscribe(origins => {
       this.origins = origins;
     });
+    this.addNewOrigin = false;
+  }
+
+  onAbortNewOrigin() {
+    this.addNewOrigin = false;
   }
 
   private onAddIngredient() {
