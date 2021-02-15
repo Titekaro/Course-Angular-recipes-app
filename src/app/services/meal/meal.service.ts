@@ -10,9 +10,8 @@ import {map} from "rxjs/operators";
 })
 export class MealService {
   private apiUrl = 'https://recipes-app-1f8a7-default-rtdb.europe-west1.firebasedatabase.app/';
-  private meals: RecipeModel[];
-  private mealsWithOrigin: RecipeModel[];
-  origins = [];
+  meals: RecipeModel[];
+  mealsWithOrigin: RecipeModel[];
   mealsChanged = new Subject<RecipeModel[]>();
   isLoading = new Subject<boolean>();
   getOrigins = new Subject();
@@ -117,13 +116,11 @@ export class MealService {
       }
       return array;
     })).subscribe(origins => {
-      this.origins = origins;
-      this.getOrigins.next(this.origins);
+      this.getOrigins.next(origins);
     }, (error) => {
       console.log(error);
     }, () => {
     });
-    return this.origins;
   }
 
   /**
