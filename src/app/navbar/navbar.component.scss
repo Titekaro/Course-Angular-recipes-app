@@ -1,6 +1,4 @@
-.nav-link {
-  cursor: pointer !important;
-}
+@import "src/assets/styles/variables";
 
 .navbar-brand {
   padding: 0;
@@ -10,7 +8,38 @@
   width: 80px;
 }
 
+
+.navbar-nav {
+  @media (min-width: 992px) {
+    align-items: center;
+  }
+}
+
+.nav-item--user {
+  @media (min-width: 992px) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    order: 3;
+    flex-grow: 1;
+  }
+}
+
+.nav-link {
+  cursor: pointer !important;
+}
+
+.nav-link--user {
+  display: flex;
+  align-items: center;
+}
+
 .profile-picture {
   width: 35px;
   height: 35px;
+  margin-right: 10px;
+}
+
+.dropdown-divider {
+  border-color: $bg-color;
 }
