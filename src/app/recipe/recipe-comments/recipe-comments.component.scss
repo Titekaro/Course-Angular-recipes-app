@@ -1,7 +1,15 @@
-.comment-rating {
-  text-align: center;
-}
+@import "src/assets/styles/variables";
 
 .btn-link {
-  margin-top: 16px;
+  display: block;
+  margin-top: 10px;
+
+  text-align: center;
+  color: $color-primary;
+  font-size: 12px;
+}
+
+.comment-collapsed-wrapper {
+  position: relative;
+  left: 0;
 }

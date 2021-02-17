@@ -24,7 +24,7 @@ export class MealResolverService implements Resolve<RecipeModel> {
       map((meals: RecipeModel[]) => {
         for (const key in meals) {
           if (meals[key].name === this.mealName) {
-            this.meal = meals[key];
+            this.meal = {...meals[key], id: key};
           }
         }
         return this.meal;

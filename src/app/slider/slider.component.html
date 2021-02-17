@@ -1,0 +1,21 @@
+<div class="slider-wrapper">
+  <ul class="slider" style="left: 0;">
+    <li class="slide" *ngFor="let slide of slides">
+      <ng-container [ngTemplateOutlet]="templateRef"
+                    [ngTemplateOutletContext]="{ $implicit: slide }"
+      ></ng-container>
+    </li>
+  </ul>
+</div>
+
+<div class="slider-pagination" *ngIf="slides?.length > 1">
+  <ul class="bullet-list">
+    <ng-container *ngFor="let bullet of slides; let i=index">
+      <li *ngIf="i < 4">
+        <a class="bullet"
+           [class.bullet-active]="selectedSlide === i"
+           (click)="showItem(i)"></a>
+      </li>
+    </ng-container>
+  </ul>
+</div>

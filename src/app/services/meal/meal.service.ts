@@ -13,8 +13,9 @@ export class MealService {
   meals: RecipeModel[];
   mealsWithOrigin: RecipeModel[];
   mealsChanged = new Subject<RecipeModel[]>();
+  recipeChanged = new Subject<RecipeModel>();
   isLoading = new Subject<boolean>();
-  getOrigins = new Subject();
+  getOrigins = new Subject<{}[]>();
 
   constructor(private http: HttpClient) {
   }
@@ -53,7 +54,8 @@ export class MealService {
   }
 
   updateRecipe(id: string, recipe: RecipeModel) {
-    this.http.patch<RecipeModel>(this.apiUrl + 'recipes/' + id + '.json', recipe).subscribe(() => {
+    this.http.patch<RecipeModel>(this.apiUrl + 'recipes/' + id + '.json', recipe).subscribe((recipe) => {
+      this.recipeChanged.next(recipe);
     }, (error) => {
       console.log(error);
     }, () => {

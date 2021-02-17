@@ -8,6 +8,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./recipe.component.scss']
 })
 export class RecipeComponent implements OnInit {
+  showCollapsedComments = false;
   @Input() meal: RecipeModel;
   @Output() mealData = new EventEmitter<boolean>();
 
@@ -19,5 +20,9 @@ export class RecipeComponent implements OnInit {
       this.meal = this.route.snapshot.data['meal'];
     }
     this.mealData.emit(true);
+  }
+
+  onShowAllComments() {
+    this.showCollapsedComments = !this.showCollapsedComments;
   }
 }

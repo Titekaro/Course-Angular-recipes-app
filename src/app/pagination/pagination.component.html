@@ -1,0 +1,21 @@
+<ng-container [ngTemplateOutlet]="templateRef"
+              [ngTemplateOutletContext]="{ $implicit: page }"
+></ng-container>
+
+<nav *ngIf="data">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="selectedPage === 1">
+      <a class="page-link" (click)="showPreviousPage()" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item" [class.active]="activePage === i" *ngFor="let page of pages; let i=index">
+      <a class="page-link" (click)="showPage(i)">{{i + 1}}</a>
+    </li>
+    <li class="page-item" [class.disabled]="selectedPage === pages.length">
+      <a class="page-link" (click)="showNextPage()" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

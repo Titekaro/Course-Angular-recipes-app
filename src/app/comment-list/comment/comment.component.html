@@ -1,0 +1,12 @@
+<div class="comment-rating">
+  <app-bar-rating [score]="comment?.rating" [color]="'#FF9D24'"></app-bar-rating>
+</div>
+
+<figure class="comment-wrapper">
+  <blockquote>
+    <p class="comment" *ngIf="comment">
+      {{ comment.feedback }}
+    </p>
+  </blockquote>
+  <figcaption class="comment-author">— {{ comment?.username }}, {{ comment?.date | dateFormat }}</figcaption>
+</figure>

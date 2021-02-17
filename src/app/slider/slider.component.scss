@@ -1,0 +1,18 @@
+.slider-wrapper {
+  overflow: hidden;
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: left .5s;
+}
+
+.slide {
+  flex-shrink: 0;
+  width: 100%;
+}

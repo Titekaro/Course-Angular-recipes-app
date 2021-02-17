@@ -1,0 +1,13 @@
+@import "src/assets/styles/variables";
+
+.comment-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.comment-item {
+  padding: 0 15px;
+  margin: 25px 0;
+  border: 1px solid rgba($color-primary, .1);
+}

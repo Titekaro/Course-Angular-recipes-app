@@ -1,4 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {CommentModel} from "../../models/comment.model";
+import {MealService} from "../../services/meal/meal.service";
 
 @Component({
   selector: 'app-recipe-comments',
@@ -6,11 +8,22 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./recipe-comments.component.scss']
 })
 export class RecipeCommentsComponent implements OnInit {
-  @Input() comments;
+  collapsed = true;
+  @Input() comments: CommentModel[];
+  @Output() showAllComments = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(private mealService: MealService) {
+  }
 
   ngOnInit() {
+    this.mealService.recipeChanged.subscribe(recipe => {
+      this.comments = recipe.comments;
+    });
+  }
+
+  showCollapsed() {
+    this.collapsed = !this.collapsed;
+    this.showAllComments.emit(true);
   }
 
 }
