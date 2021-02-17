@@ -1,15 +1,9 @@
-<div class="recipe-block">
-  <h5 class="recipe-block-title">
-    Leave us your appreciation on this recipe :-)
-  </h5>
+<div class="form-comment-wrapper col-12 col-lg-8">
+  <p class="small">How would you rate your experience with this recipe?</p>
 
-  <div class="form-comment-wrapper col-12 col-lg-8">
-
-    <p class="small">How would you rate your experience with this recipe?</p>
-
-    <div class="rating-wrapper">
-      <app-bar-rating [isRating]="true" [color]="'#FF9D24'"></app-bar-rating>
-    </div>
+  <div class="rating-wrapper">
+    <app-bar-rating [isRating]="true" [score]="score" [color]="'#FF9D24'" (rating)="getRating($event)"></app-bar-rating>
+  </div>
 
     <form #commentForm="ngForm" (ngSubmit)="onSubmit()">
       <input type="text"
@@ -32,7 +26,5 @@
         </svg>
       </button>
     </form>
-
-  </div>
 
 </div>

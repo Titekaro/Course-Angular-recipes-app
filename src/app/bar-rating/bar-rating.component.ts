@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-bar-rating',
   templateUrl: './bar-rating.component.html',
   styleUrls: ['./bar-rating.component.scss']
 })
-export class BarRatingComponent implements OnInit {
+export class BarRatingComponent implements OnInit, OnChanges {
   iconDirectoryUrl = 'assets/icons/';
   filledStars: any[];
   emptyStars: any[];
@@ -14,6 +14,7 @@ export class BarRatingComponent implements OnInit {
   @Input() score: number;
   @Input() color: string;
   @Input() isRating = false;
+  @Output() rating = new EventEmitter<number>();
 
   constructor() {
   }
@@ -26,6 +27,12 @@ export class BarRatingComponent implements OnInit {
     this.getStars(this.score);
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if(!changes.score.currentValue) {
+      this.removeActiveStars();
+    }
+  }
+
   private getStars(score: number) {
     this.filledStars = Array(score);
     if (score < this.starsMax) {
@@ -36,6 +43,7 @@ export class BarRatingComponent implements OnInit {
   private onRate(rating: number) {
     this.selectedScore = true;
     this.score = rating + 1;
+    this.rating.emit(this.score);
   }
 
   private highlightStars(index: number) {
