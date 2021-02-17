@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-form-comment',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-comment.component.scss']
 })
 export class FormCommentComponent implements OnInit {
+  @ViewChild('commentForm') commentForm: NgForm;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    if (!this.commentForm.valid) {
+      return;
+    }
   }
 
 }

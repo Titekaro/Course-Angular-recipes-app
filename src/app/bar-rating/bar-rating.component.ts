@@ -10,19 +10,23 @@ export class BarRatingComponent implements OnInit {
   filledStars: any[];
   emptyStars: any[];
   starsMax = 5;
-  @Input() score = 0;
+  selectedScore = false;
+  @Input() score: number;
   @Input() color: string;
   @Input() isRating = false;
-  selectedScore = false;
 
   constructor() {
   }
 
   ngOnInit() {
+    if (!this.score) {
+      this.emptyStars = Array(this.starsMax);
+      return;
+    }
     this.getStars(this.score);
   }
 
-  private getStars(score?: number) {
+  private getStars(score: number) {
     this.filledStars = Array(score);
     if (score < this.starsMax) {
       this.emptyStars = Array(this.starsMax - score);

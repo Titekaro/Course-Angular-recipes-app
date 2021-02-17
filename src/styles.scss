@@ -7,6 +7,7 @@
 @import "assets/styles/atoms/bullet";
 @import "assets/styles/atoms/comment";
 @import "assets/styles/atoms/icons";
+@import "assets/styles/atoms/buttons";
 
 @import "assets/styles/molecules/recipe";
 
@@ -17,6 +18,8 @@ html, body {
 }
 
 .bg-primary {
+  color: $text-color-invert;
+  -webkit-font-smoothing: antialiased;
   background-color: $color-primary !important;
 }
 
@@ -27,7 +30,7 @@ html, body {
 .bg-primary-dark {
   color: $text-color-invert;
   -webkit-font-smoothing: antialiased;
-  background-color: #212a39;
+  background-color: $color-primary-dark;
 }
 
 a {

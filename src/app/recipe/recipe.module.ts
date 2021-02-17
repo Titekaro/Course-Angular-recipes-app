@@ -8,6 +8,7 @@ import {RecipeIngredientsComponent} from "./recipe-ingredients/recipe-ingredient
 import {RecipeCommentsComponent} from "./recipe-comments/recipe-comments.component";
 import {RecipeOverviewComponent} from "./recipe-overview/recipe-overview.component";
 import {FormCommentComponent} from "../forms/form-comment/form-comment.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,10 +19,11 @@ import {FormCommentComponent} from "../forms/form-comment/form-comment.component
     RecipeOverviewComponent,
     FormCommentComponent,
   ],
-  imports: [
-    SharedModule,
-    MealModule
-  ],
+    imports: [
+        SharedModule,
+        MealModule,
+        FormsModule
+    ],
   exports: [
     RecipeComponent,
     RecipeStepsComponent,
