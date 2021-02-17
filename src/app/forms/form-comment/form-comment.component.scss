@@ -1,0 +1,30 @@
+@import "src/assets/styles/variables";
+
+.form-comment-wrapper {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rating-wrapper {
+  display: inline-block;
+  margin: 0 auto 15px;
+  padding: 8px 40px;
+
+  text-align: center;
+  background-color: rgba($color-tertiary, .2);
+  border-radius: 50px;
+}
+
+input, textarea {
+  -webkit-font-smoothing: antialiased;
+  color: $color-primary;
+  background-color: rgba($color-tertiary, .2);
+  border: 1px solid rgba($color-tertiary, .2);
+
+  &:focus {
+    color: $color-primary;
+    box-shadow: none;
+    background-color: rgba($color-tertiary, .2);
+    border: 1px solid rgba($color-tertiary, .5);
+  }
+}
