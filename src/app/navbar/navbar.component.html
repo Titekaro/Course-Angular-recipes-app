@@ -37,7 +37,7 @@
             <li routerLinkActive="active" *ngFor="let origin of origins">
               <a class="dropdown-item"
                  [routerLink]="['/meals', origin.origin]">
-                {{origin.origin}}
+                {{origin.origin | capitalize}}
               </a>
             </li>
           </ul>
