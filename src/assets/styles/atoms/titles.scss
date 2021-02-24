@@ -1,0 +1,22 @@
+.title {
+  font-family: $font-family-base;
+}
+
+.title-highlight {
+  position: relative;
+  z-index: 1;
+  padding: 0 8px;
+  font-family: $font-family-highlight;
+  font-size: 1.8em;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: .25em;
+    left: 0;
+    right: 0;
+    height: .3em;
+    background-color: $color-orange;
+  }
+}

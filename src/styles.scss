@@ -4,9 +4,11 @@
 @import "assets/styles/utilities";
 @import "assets/styles/modal";
 
+@import "assets/styles/atoms/types";
 @import "assets/styles/atoms/bullet";
 @import "assets/styles/atoms/icons";
 @import "assets/styles/atoms/buttons";
+@import "assets/styles/atoms/titles";
 
 @import "assets/styles/molecules/recipe";
 
@@ -34,14 +36,6 @@ html, body {
 
 a {
   cursor: pointer;
-}
-
-.title {
-  font-family: $font-family-base;
-}
-
-.title-highlight {
-  font-family: $font-family-highlight;
 }
 
 .dropdown {
