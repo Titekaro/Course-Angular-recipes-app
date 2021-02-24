@@ -30,7 +30,7 @@
           </label>
           <div class="input-group">
             <select id="recipeOrigin" class="form-select form-control" formControlName="origin">
-              <option *ngFor="let origin of origins" [value]="origin.origin">{{origin.origin}}</option>
+              <option *ngFor="let origin of origins" [value]="origin.origin">{{origin.origin | capitalize}}</option>
             </select>
             <!-- Button trigger modal -->
             <button type="button"
@@ -48,7 +48,7 @@
             Type
           </label>
           <select id="recipeType" class="form-select form-control" formControlName="type">
-            <option *ngFor="let type of types" [value]="type">{{type}}</option>
+            <option *ngFor="let type of types" [value]="type">{{type | capitalize}}</option>
           </select>
         </div>
       </div>
@@ -59,7 +59,7 @@
             Difficulty
           </label>
           <select id="recipeLevel" class="form-select form-control" formControlName="difficulty">
-            <option *ngFor="let difficulty of difficulties" [value]="difficulty">{{difficulty}}</option>
+            <option *ngFor="let difficulty of difficulties" [value]="difficulty">{{difficulty | capitalize}}</option>
           </select>
         </div>
         <div class="col-6">
