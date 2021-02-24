@@ -30,31 +30,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.title {
-  font-size: 3em;
-  font-weight: 300;
-}
-
-.title-carousel {
-  position: relative;
-  z-index: 1;
-  padding: 0 8px;
-
-  font-family: $font-family-highlight;
-  font-size: 1.25em;
-
-  &:before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    bottom: 16px;
-    left: 0;
-    right: 0;
-    height: 19px;
-    background-color: $color-orange;
-  }
-}
-
 .subtitle {
   font-size: 1.5em;
   font-weight: 300;
