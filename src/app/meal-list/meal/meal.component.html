@@ -10,24 +10,24 @@
 <ng-template #mealEdit>
   <div class="meal-strip btn-group mb-3">
     <div class="row flex-grow-1">
-      <div class="col-2 p-0">
-        <app-meal-picture [image]="meal.imagePath"></app-meal-picture>
+      <div class="col-2">
+        <app-meal-picture [class]="'meal-picture--small'" [image]="meal.imagePath"></app-meal-picture>
       </div>
 
-      <div class="col-10 p-0">
-        <div class="p-3">
+      <div class="col-10 ps-0 py-2">
+        <div class="icon-group">
+          <h4 class="d-inline-block mb-0 me-2">
+            {{ meal.name }}
+          </h4>
+          <a class="icon icon-link"
+             title="preview"
+             [inlineSVG]="iconDirectoryUrl+'icon-preview.svg'"
+             (click)="showRecipe(meal)"></a>
+        </div>
+        <div class="meal-info">
           <div class="icon-group">
-            <h5 class="meal-title d-inline-block mb-0 me-2">{{ meal.name }}</h5>
-            <a class="icon icon-link"
-               title="preview"
-               [inlineSVG]="iconDirectoryUrl+'icon-preview.svg'"
-               (click)="showRecipe(meal)"></a>
-          </div>
-          <div class="meal-info">
-            <div class="icon-group">
-              <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-geo.svg'"></div>
-              <span class="icon-text">{{ meal.origin }}</span>
-            </div>
+            <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-geo.svg'"></div>
+            <span class="icon-text">{{ meal.origin }}</span>
           </div>
         </div>
       </div>

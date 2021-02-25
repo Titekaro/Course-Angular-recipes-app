@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class MealPictureComponent implements OnInit {
   @Input() image: string;
   @Input() zoomEffect = false;
+  @Input() class: string;
 
   constructor() { }
 

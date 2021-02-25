@@ -1,5 +1,6 @@
 <div class="meal-picture-wrapper" [class.zoom]="zoomEffect">
   <div class="meal-picture"
+       [ngClass]="class"
        [ngStyle]="{'background-image': 'url(' + image +')'}">
   </div>
 </div>
