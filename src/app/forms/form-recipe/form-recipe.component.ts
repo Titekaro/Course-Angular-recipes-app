@@ -1,5 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {FormArray, FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MealService} from "../../services/meal/meal.service";
 import {RecipeModel} from "../../models/recipe.model";
@@ -14,6 +14,7 @@ import {HttpResponse} from "../../Enums/http-response.enum";
   styleUrls: ['./form-recipe.component.scss']
 })
 export class FormRecipeComponent implements OnInit, OnDestroy {
+  @ViewChild('newOriginForm') newOriginForm: NgForm;
   difficulties = [
     'Easy',
     'Moderate',
@@ -33,6 +34,7 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
   recipe: RecipeModel;
   isEditing = false;
   httpResponse: HttpResponseModel;
+  newOriginSubmitting = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private mealService: MealService) {
   }
@@ -102,11 +104,16 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
   }
 
   onConfirmNewOrigin(origin) {
+    this.newOriginSubmitting = true;
+    if (!this.newOriginForm.valid) {
+      return;
+    }
     this.mealService.postMealOriginData({origin});
     this.originSub = this.mealService.getOrigins.subscribe(origins => {
       this.origins = origins;
     });
     this.addNewOrigin = false;
+    this.newOriginSubmitting = false;
   }
 
   onAbortNewOrigin() {

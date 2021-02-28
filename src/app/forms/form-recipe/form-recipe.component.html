@@ -87,7 +87,8 @@
                  [formControlName]="i">
           <button type="button"
                   class="btn btn-danger"
-                  (click)="onRemoveIngredient(i)">x</button>
+                  (click)="onRemoveIngredient(i)">x
+          </button>
         </div>
         <button type="button"
                 class="btn btn-secondary d-block"
@@ -141,7 +142,7 @@
     Add new meal origin
   </ng-container>
   <ng-container body>
-    <form>
+    <form #newOriginForm="ngForm">
       <label for="newOrigin"
              class="form-label">
         Origin name
@@ -151,7 +152,11 @@
              name="newOrigin"
              class="form-control"
              ngModel
-             #newOrigin="ngModel">
+             #newOrigin="ngModel"
+             required>
+      <p class="alert alert-danger mt-2" *ngIf="!newOriginForm.valid && newOriginSubmitting">
+        Please enter an origin name to add one.
+      </p>
     </form>
   </ng-container>
 </app-modal>
