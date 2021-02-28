@@ -16,6 +16,7 @@ export class FormCommentComponent implements OnInit {
   @Input() recipe: RecipeModel;
   score: number;
   httpResponse: HttpResponseModel;
+  isSubmitting = false;
 
   constructor(private mealService: MealService) {
   }
@@ -28,6 +29,7 @@ export class FormCommentComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isSubmitting = true;
     if (!this.commentForm.valid || !this.score) {
       return;
     }
@@ -58,6 +60,7 @@ export class FormCommentComponent implements OnInit {
       };
       this.commentForm.resetForm();
       this.score = undefined;
+      this.isSubmitting = false;
       this.mealService.recipeChanged.next(recipe);
     });
     this.mealService.fetchRecipesData();
