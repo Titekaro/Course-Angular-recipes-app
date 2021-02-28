@@ -4,6 +4,9 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MealService} from "../../services/meal/meal.service";
 import {RecipeModel} from "../../models/recipe.model";
 import {Subscription} from "rxjs";
+import {HttpErrorResponse} from "@angular/common/http";
+import {HttpResponseModel} from "../../models/httpResponse.model";
+import {HttpResponse} from "../../Enums/http-response.enum";
 
 @Component({
   selector: 'app-form-recipe',
@@ -23,12 +26,13 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
     'Main course',
     'Dessert'
   ];
-  origins: object;
   originSub: Subscription;
+  origins: object;
   addNewOrigin = false;
   recipeForm: FormGroup;
   recipe: RecipeModel;
   isEditing = false;
+  httpResponse: HttpResponseModel;
 
   constructor(private route: ActivatedRoute, private router: Router, private mealService: MealService) {
   }
@@ -124,16 +128,49 @@ export class FormRecipeComponent implements OnInit, OnDestroy {
       return;
     }
     if (this.isEditing) {
-      this.mealService.updateRecipe(this.recipe.id, this.recipeForm.value);
+      this.mealService.updateRecipe(this.recipe.id, this.recipeForm.value).subscribe(() => {
+      }, (errorResponse: HttpErrorResponse) => {
+        this.httpResponse = {
+          type: HttpResponse.ERROR,
+          message: errorResponse.error.error
+        };
+      }, () => {
+        this.httpResponse = {
+          type: HttpResponse.SUCCESS,
+          message: 'The recipe has been successful updated.'
+        };
+        this.mealService.recipeChanged.next(this.recipeForm.value);
+        this.onCancel();
+      });
     } else {
-      this.mealService.addRecipe(this.recipeForm.value);
+      this.mealService.addRecipe(this.recipeForm.value).subscribe(() => {
+      }, (errorResponse: HttpErrorResponse) => {
+        this.httpResponse = {
+          type: HttpResponse.ERROR,
+          message: errorResponse.error.error
+        };
+      }, () => {
+        this.httpResponse = {
+          type: HttpResponse.SUCCESS,
+          message: 'The recipe has been successful added.'
+        };
+        this.onCancel();
+      });
     }
-    this.onCancel();
+    this.resetHttpResponse();
+    this.mealService.fetchRecipesData();
   }
 
   onCancel() {
     this.recipeForm.reset();
     this.router.navigate(['../'], {relativeTo: this.route}).then();
+  }
+
+  private resetHttpResponse() {
+    setTimeout(() => {
+      document.querySelector('.toast').classList.add('hide');
+      this.httpResponse = null;
+    }, 5000);
   }
 
   ngOnDestroy() {

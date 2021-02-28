@@ -45,22 +45,11 @@ export class MealService {
   }
 
   addRecipe(recipe: RecipeModel) {
-    this.http.post<RecipeModel>(this.apiUrl + 'recipes.json', recipe).subscribe(() => {
-    }, (response) => {
-      console.log(response);
-    }, () => {
-      this.fetchRecipesData();
-    });
+    return this.http.post<RecipeModel>(this.apiUrl + 'recipes.json', recipe);
   }
 
   updateRecipe(id: string, recipe: RecipeModel) {
-    this.http.patch<RecipeModel>(this.apiUrl + 'recipes/' + id + '.json', recipe).subscribe((recipe) => {
-      this.recipeChanged.next(recipe);
-    }, (error) => {
-      console.log(error);
-    }, () => {
-      this.fetchRecipesData();
-    });
+    return this.http.patch<RecipeModel>(this.apiUrl + 'recipes/' + id + '.json', recipe);
   }
 
   removeRecipe(id: string) {
