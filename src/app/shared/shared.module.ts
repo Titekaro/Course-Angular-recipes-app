@@ -11,6 +11,7 @@ import {CommentComponent} from "../comment-list/comment/comment.component";
 import {CommentListComponent} from "../comment-list/comment-list.component";
 import {CapitalizePipe} from "../pipes/capitalize.pipe";
 import {PaginationComponent} from "../pagination/pagination.component";
+import {ToastComponent} from "../toast/toast.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {PaginationComponent} from "../pagination/pagination.component";
     CommentComponent,
     CommentListComponent,
     CapitalizePipe,
-    PaginationComponent
+    PaginationComponent,
+    ToastComponent,
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import {PaginationComponent} from "../pagination/pagination.component";
     CommentComponent,
     CommentListComponent,
     CapitalizePipe,
-    PaginationComponent
+    PaginationComponent,
+    ToastComponent,
   ]
 })
 export class SharedModule { }

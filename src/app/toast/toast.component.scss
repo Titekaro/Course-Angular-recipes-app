@@ -1,0 +1,48 @@
+@import "src/assets/styles/variables";
+
+.toast {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  margin-top: 15px;
+  border-width: 0 0 0 6px;
+  opacity: 0;
+  animation: fadeIn .5s forwards;
+
+  &--danger {
+    color: darken($color-danger, 15);
+    background-color: lighten($color-danger, 40);
+    border-color: darken($color-danger, 15);
+  }
+  &--warning {
+    color: darken($color-warning, 15);
+    background-color: lighten($color-warning, 40);
+    border-color: darken($color-warning, 15);
+  }
+  &--success {
+    color: darken($color-success, 15);
+    background-color: lighten($color-success, 40);
+    border-color: darken($color-success, 15);
+  }
+  &--info {
+    color: darken($color-info, 15);
+    background-color: lighten($color-info, 40);
+    border-color: darken($color-info, 15);
+  }
+}
+
+.toast-header {
+  color: inherit;
+  background-color: inherit;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
