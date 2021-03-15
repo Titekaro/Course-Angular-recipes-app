@@ -6,6 +6,7 @@
 .icon {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
   width: $icon-size;
   margin: 0 .5rem;
 }
