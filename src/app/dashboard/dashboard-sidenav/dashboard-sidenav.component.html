@@ -1,35 +1,45 @@
-<nav class="sidebar position-fixed">
+<nav class="sidebar">
 
-  <ul class="nav flex-column mt-2">
+  <ul class="nav">
+    <li class="nav-item nav-profile">
+      <img class="profile-picture" src="https://t3.ftcdn.net/jpg/02/33/46/24/360_F_233462402_Fx1yke4ng4GA8TJikJZoiATrkncvW6Ib.jpg" alt="Profile picture">
+      <span class="username d-none d-lg-block">Username</span>
+    </li>
     <li class="nav-item">
-      <a class="nav-link d-flex align-items-center"
-         [routerLink]="['/dashboard', 'home']"
-         routerLinkActive="active">
-        <div class="icon me-2 d-flex align-items-center" [inlineSVG]="iconDirectoryUrl+'icon-home.svg'"></div>
-        Overview
+      <a class="nav-link" title="Profile" href="#">
+        <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-user.svg'"></div>
+        <span class="d-none d-lg-block">Profile</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link d-flex align-items-center"
-         [routerLink]="['/dashboard', 'recipes']">
-        <div class="icon me-2 d-flex align-items-center" [inlineSVG]="iconDirectoryUrl+'icon-recipe.svg'"></div>
-        Recipes
+      <a class="nav-link" title="Settings" href="#">
+        <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-settings.svg'"></div>
+        <span class="d-none d-lg-block">Settings</span>
+      </a>
+    </li>
+    <li class="dropdown-divider"></li>
+    <li class="nav-item">
+      <a class="nav-link" title="Overview" routerLinkActive="active" [routerLink]="['/dashboard', 'home']">
+        <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-home.svg'"></div>
+        <span class="d-none d-lg-block">Overview</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link d-flex align-items-center"
-         [routerLink]="['/dashboard', 'stats']"
-         routerLinkActive="active">
-        <div class="icon me-2 d-flex align-items-center" [inlineSVG]="iconDirectoryUrl+'icon-stat.svg'"></div>
-        Stats
+      <a class="nav-link" title="Recipes" routerLinkActive="active" [routerLink]="['/dashboard', 'recipes']">
+        <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-recipe.svg'"></div>
+        <span class="d-none d-lg-block">Recipes</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link d-flex align-items-center"
-         [routerLink]="['/dashboard', 'comments']"
-         routerLinkActive="active">
-        <div class="icon me-2 d-flex align-items-center" [inlineSVG]="iconDirectoryUrl+'icon-comment.svg'"></div>
-        Comments
+      <a class="nav-link" title="Stats" routerLinkActive="active" [routerLink]="['/dashboard', 'stats']">
+        <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-stat.svg'"></div>
+        <span class="d-none d-lg-block">Stats</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" title="Comments" routerLinkActive="active" [routerLink]="['/dashboard', 'comments']">
+        <div class="icon" [inlineSVG]="iconDirectoryUrl+'icon-comment.svg'"></div>
+        <span class="d-none d-lg-block">Comments</span>
       </a>
     </li>
   </ul>
