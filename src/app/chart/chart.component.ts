@@ -12,6 +12,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
   @Input() size = 400;
   @Input() type = 'pie';
   @Input() title = '';
+  @Input() hasLegend = true;
   @Input() data: [ChartData][];
 
   chart: Chart;
@@ -39,18 +40,21 @@ export class ChartComponent implements OnInit, AfterViewInit {
             data: this.chartData.data,
             backgroundColor: this.chartData.colors,
             /*borderColor: this.chartData.colors,*/
-            borderWidth: 2,
+            borderWidth: 0,
+            barPercentage: 1,
+            categoryPercentage: 0.5,
           }
         ]
       },
       options: {
         title: {
           display: !!this.title,
-          text: this.title
+          text: this.title,
         },
         legend: {
+          display: !!this.hasLegend,
           align: 'end',
-          position: 'left'
+          position: 'bottom'
         },
         layout: {
           padding: {
@@ -59,7 +63,19 @@ export class ChartComponent implements OnInit, AfterViewInit {
             top: 15,
             bottom: 15
           }
-        }
+        },
+        scales: {
+          xAxes: [{
+            gridLines: false,
+            stepSize: 1,
+          }],
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              stepSize: 1,
+            }
+          }]
+        },
       }
     });
   }

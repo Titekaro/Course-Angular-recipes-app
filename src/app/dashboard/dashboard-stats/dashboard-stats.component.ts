@@ -29,10 +29,27 @@ export class DashboardStatsComponent implements OnInit {
       });
     }
 
-    this.origins = this.statsService.getStats(this.recipes, 'origin');
-    this.difficulties = this.statsService.getStats(this.recipes, 'difficulty');
-    this.types = this.statsService.getStats(this.recipes, 'type');
-    this.ratings = this.statsService.getStats(this.recipes, 'comments');
+    this.origins = this.getStats(this.recipes, 'origin');
+    this.difficulties = this.getStats(this.recipes, 'difficulty');
+    this.types = this.getStats(this.recipes, 'type');
+    this.ratings = this.getStats(this.recipes, 'comments');
+  }
+
+  /**
+   * Return an array with the amount of key present in an array.
+   * @param array
+   * @param key
+   */
+  getStats(array, key: string) {
+    const res = [];
+    array.forEach(item => {
+      if (!this[item[key]]) {
+        this[item[key]] = [item[key], 0];
+        res.push(this[item[key]]);
+      }
+      this[item[key]][1]++
+    });
+    return res;
   }
 
 }

@@ -3,8 +3,15 @@
     <app-card [title]="'Stats'"
               [footer]="true">
       <ng-container body>
+        <p class="h2">
+          22<br>
+          <small>Total recipes</small>
+        </p>
+      </ng-container>
+      <ng-container outside-body>
         <app-chart [chartName]="chartTitle"
-                   [title]="chartTitle | capitalize"
+                   [type]="'bar'"
+                   [hasLegend]="false"
                    [data]="chartData"></app-chart>
       </ng-container>
       <ng-container footer>

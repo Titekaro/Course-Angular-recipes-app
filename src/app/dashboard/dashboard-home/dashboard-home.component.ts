@@ -32,7 +32,24 @@ export class DashboardHomeComponent implements OnInit {
 
   setChartData(array: any[], value: string, title: string) {
     this.chartTitle = title;
-    this.chartData = this.statsService.getStats(array, value);
+    this.chartData = this.getStats(array, value);
+  }
+
+  /**
+   * Return an array with the amount of key present in an array.
+   * @param array
+   * @param key
+   */
+  getStats(array, key: string) {
+    const res = [];
+    array.forEach(item => {
+      if (!this[item[key]]) {
+        this[item[key]] = [item[key], 0];
+        res.push(this[item[key]]);
+      }
+      this[item[key]][1]++
+    });
+    return res;
   }
 
 }
