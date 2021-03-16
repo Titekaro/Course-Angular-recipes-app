@@ -1,5 +1,5 @@
 $color-primary: #384454;
-$color-primary-dark: #212a39;
+$color-primary-dark: darken($color-primary, 8);
 $color-secondary: #fafaf8;
 $color-tertiary: #606DBE;
 $color-success: #198754;
@@ -23,3 +23,5 @@ $recipe-block-bg: #ffffff;
 
 $bullet-width: 7px;
 $bullet-color: $color-primary;
+
+$profile-picture-size: 30px;

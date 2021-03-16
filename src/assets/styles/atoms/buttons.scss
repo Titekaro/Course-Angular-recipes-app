@@ -10,8 +10,8 @@
 
   &:hover,
   &:focus {
-    background-color: darken($color-primary, 8);
-    border-color: darken($color-primary, 8);
+    background-color: $color-primary-dark;
+    border-color: $color-primary-dark;
   }
 }
 
