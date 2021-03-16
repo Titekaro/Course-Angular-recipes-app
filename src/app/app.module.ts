@@ -13,6 +13,7 @@ import {SharedModule} from "./shared/shared.module";
 import {MealModule} from "./meal-list/meal.module";
 import {RecipeModule} from "./recipe/recipe.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { NavTabsComponent } from './navbar/nav-tabs/nav-tabs.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MealsComponent,
     HeaderComponent,
     AuthenticationComponent,
+    NavTabsComponent,
   ],
   imports: [
     BrowserModule,
