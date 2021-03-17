@@ -14,12 +14,15 @@ import {MealModule} from './meal-list/meal.module';
 import {RecipeModule} from './recipe/recipe.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NavTabsComponent } from './navbar/nav-tabs/nav-tabs.component';
+import { DropdownComponent } from './ui/dropdown/dropdown.component';
+
 import {AuthenticationService} from './services/authentication/authentication.service';
 import {UserService} from './services/user/user.service';
 import {MealService} from './services/meal/meal.service';
-import {AuthenticationGuard} from './guards/authentication/authentication.guard';
 import {MealResolverService} from './services/meal/meal-resolver.service';
 import {ViewportScroller} from '@angular/common';
+
+import {AuthenticationGuard} from './guards/authentication/authentication.guard';
 
 
 @NgModule({
@@ -30,6 +33,7 @@ import {ViewportScroller} from '@angular/common';
     HeaderComponent,
     AuthenticationComponent,
     NavTabsComponent,
+    DropdownComponent,
   ],
   imports: [
     BrowserModule,
