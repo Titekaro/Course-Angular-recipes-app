@@ -137,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "people-dogs-app"
+  "defaultProject": "people-dogs-app",
+  "cli": {
+    "analytics": false
+  }
 }
