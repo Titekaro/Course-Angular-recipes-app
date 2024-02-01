@@ -1,4 +1,4 @@
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {MealService} from "./meal.service";
@@ -9,7 +9,7 @@ import * as config from '../../../../config.json';
 @Injectable({
   providedIn: "root"
 })
-export class OriginsResolverService implements Resolve<any[]> {
+export class OriginsResolverService  {
   origins: any[];
 
   constructor(private mealService: MealService, private http: HttpClient) {
