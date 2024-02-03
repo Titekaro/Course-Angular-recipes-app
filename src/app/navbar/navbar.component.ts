@@ -1,18 +1,18 @@
-import {Component, OnDestroy, OnInit} from "@angular/core";
-import {Subscription} from "rxjs";
-import {AuthenticationService} from "../services/authentication/authentication.service";
-import {MealService} from "../services/meal/meal.service";
-import {first, map} from "rxjs/operators";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {AuthenticationService} from '../services/authentication/authentication.service';
+import {MealService} from '../services/meal/meal.service';
+import {first, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   showNavTabs = false;
   navTabsLinks;
-  adminMode: boolean = false;
+  adminMode = false;
   adminModeSub: Subscription;
   origins;
 

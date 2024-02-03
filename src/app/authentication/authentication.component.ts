@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {AuthenticationResponseData, AuthenticationService} from "../services/authentication/authentication.service";
-import {Observable} from "rxjs";
+import {Component, Injectable, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {AuthenticationResponseData, AuthenticationService} from '../services/authentication/authentication.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-authentication',
@@ -11,8 +11,8 @@ import {Observable} from "rxjs";
 export class AuthenticationComponent implements OnInit {
   @ViewChild('authForm') authForm: NgForm;
 
-  loginMode: boolean = true;
-  isLoading: boolean = false;
+  loginMode = true;
+  isLoading = false;
   error: string = null;
   authenticationObserver: Observable<AuthenticationResponseData>;
 
@@ -41,7 +41,7 @@ export class AuthenticationComponent implements OnInit {
     }
 
     this.authenticationObserver.subscribe(
-      responseData => {
+      () => {
         this.isLoading = false;
       }, error => {
         this.error = error;
@@ -49,7 +49,7 @@ export class AuthenticationComponent implements OnInit {
       });
   }
 
-  private onCloseModal() {
+  onCloseModal() {
     this.error = null;
   }
 }
