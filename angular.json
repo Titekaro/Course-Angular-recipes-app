@@ -10,7 +10,9 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "name": "",
+          "project": ""
         }
       },
       "architect": {
@@ -121,7 +123,8 @@
           },
           "configurations": {
             "production": {
-              "devServerTarget": "people-dogs-app:serve:production"
+              "devServerTarget": "people-dogs-app:serve:production",
+              "protractorConfig": ""
             }
           }
         },
@@ -137,5 +140,6 @@
       }
     }
   },
-  "defaultProject": "people-dogs-app"
+  "cli": {
+  }
 }
